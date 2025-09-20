@@ -3,7 +3,7 @@
 Benvenuto nel mio portfolio personale!  
 Mi chiamo **Emanuele**, ho 18 anni e sono uno sviluppatore appassionato di programmazione e tecnologie moderne.
 
-🔗 **Visita il sito**: [emanuele.github.io](https://emanuele.github.io)
+🔗 **Visita il sito**: [Manuelih.github.io](https://manuelih.github.io)
 
 ---
 
@@ -37,7 +37,7 @@ Mi chiamo **Emanuele**, ho 18 anni e sono uno sviluppatore appassionato di progr
 ## 📬 Contatti
 
 - Email: emanuele@email.it  
-- GitHub: [github.com/emanuele](https://github.com/emanuele)  
+- GitHub: [github.com/Manuelih](https://github.com/manuelih)  
 
 ---
 
