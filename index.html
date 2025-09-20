@@ -31,12 +31,11 @@
     <section id="skills">
       <h2>Competenze Tecniche</h2>
 
-      <!-- BADGE -->
       <div class="badges">
-        <img src="https://img.shields.io/badge/Java-100%25-red?logo=java" alt="Java Badge" />
-        <img src="https://img.shields.io/badge/Python-100%25-red?logo=python" alt="Python Badge" />
-        <img src="https://img.shields.io/badge/Discord.js-80%25-red?logo=discord" alt="Discord.js Badge" />
-        <img src="https://img.shields.io/badge/HTML-100%25-red?logo=html5" alt="HTML Badge" />
+        <img src="https://img.shields.io/badge/Java-100%25-00bfa6?logo=java" alt="Java Badge" />
+        <img src="https://img.shields.io/badge/Python-100%25-00bfa6?logo=python" alt="Python Badge" />
+        <img src="https://img.shields.io/badge/Discord.js-80%25-00bfa6?logo=discord" alt="Discord.js Badge" />
+        <img src="https://img.shields.io/badge/HTML-100%25-00bfa6?logo=html5" alt="HTML Badge" />
       </div>
 
       <div class="skill">
@@ -107,13 +106,13 @@
 
       <form action="https://formspree.io/f/xyzdrvnb" method="POST" class="contact-form">
         <label for="name">Nome:</label>
-        <input type="text" name="name" required>
+        <input type="text" name="name" id="name" required />
 
         <label for="email">Email:</label>
-        <input type="email" name="email" required>
+        <input type="email" name="email" id="email" required />
 
         <label for="message">Messaggio:</label>
-        <textarea name="message" rows="5" required></textarea>
+        <textarea name="message" id="message" rows="5" required></textarea>
 
         <button type="submit">Invia Messaggio</button>
       </form>
@@ -125,6 +124,7 @@
   </footer>
 
   <script>
+    // Intersection Observer for fade-in sections
     const sections = document.querySelectorAll("section");
 
     const observer = new IntersectionObserver((entries) => {
@@ -140,8 +140,27 @@
     sections.forEach(section => {
       observer.observe(section);
     });
+
+    // Custom animated cursor and click effect
+    const cursor = document.createElement('div');
+    cursor.id = 'cursor';
+    document.body.appendChild(cursor);
+
+    const clickEffect = document.createElement('div');
+    clickEffect.id = 'click-effect';
+    document.body.appendChild(clickEffect);
+
+    window.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.pageX + 'px';
+      cursor.style.top = e.pageY + 'px';
+    });
+
+    window.addEventListener('click', (e) => {
+      clickEffect.style.left = e.pageX + 'px';
+      clickEffect.style.top = e.pageY + 'px';
+      clickEffect.classList.add('active');
+      setTimeout(() => clickEffect.classList.remove('active'), 500);
+    });
   </script>
 </body>
 </html>
-
-
