@@ -87,6 +87,14 @@ section {
   border-left: 5px solid #c0392b;
   border-radius: 8px;
   box-shadow: 0 0 6px rgba(0,0,0,0.05);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 h2 {
@@ -96,6 +104,16 @@ h2 {
   padding-bottom: 5px;
 }
 
+/* Badge */
+.badges {
+  margin-bottom: 25px;
+}
+.badges img {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+/* Skills */
 .skill {
   margin-bottom: 20px;
 }
@@ -120,6 +138,7 @@ h2 {
   transition: width 1s ease-in-out;
 }
 
+/* Projects */
 .project {
   margin-bottom: 20px;
 }
@@ -128,6 +147,7 @@ h2 {
   color: #b73225;
 }
 
+/* Feedback */
 .feedback {
   background: #fef2f2;
   border-left: 4px solid #e74c3c;
@@ -147,6 +167,42 @@ h2 {
   color: #555;
 }
 
+/* Contatti */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.contact-form label {
+  font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: inherit;
+}
+
+.contact-form button {
+  padding: 10px 20px;
+  background-color: #c0392b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #a52a1c;
+}
+
+/* Link generali */
 a {
   color: #c0392b;
   text-decoration: none;
@@ -156,6 +212,7 @@ a:hover {
   text-decoration: underline;
 }
 
+/* Footer */
 footer {
   text-align: center;
   padding: 15px 0;
@@ -177,5 +234,10 @@ footer {
 
   .progress-bar {
     max-width: 100%;
+  }
+
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
   }
 }
