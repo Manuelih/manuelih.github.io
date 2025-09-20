@@ -3,23 +3,81 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Il mio Portfolio</title>
-  <style>
-    body { font-family: Arial, sans-serif; padding: 20px; }
-    h1 { color: #333; }
-    .project { margin-bottom: 15px; }
-  </style>
+  <title>Portfolio di Emanuele</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>Ciao, sono Mario Rossi</h1>
-  <p>Benvenuto nel mio portfolio!</p>
-  <div class="project">
-    <h2>Progetto 1</h2>
-    <p>Descrizione del progetto 1.</p>
-  </div>
-  <div class="project">
-    <h2>Progetto 2</h2>
-    <p>Descrizione del progetto 2.</p>
-  </div>
+  <header>
+    <nav>
+      <h1>Emanuele</h1>
+      <ul>
+        <li><a href="#about">Chi Sono</a></li>
+        <li><a href="#skills">Competenze</a></li>
+        <li><a href="#projects">Progetti</a></li>
+        <li><a href="#contact">Contatti</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>Chi Sono</h2>
+    <p>Ciao! Sono Emanuele, ho 18 anni e sono appassionato di programmazione. Mi piace lavorare con Java, Python, Discord.js e HTML.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Competenze</h2>
+
+    <div class="skill">
+      <span>Java</span>
+      <div class="progress-bar">
+        <div class="progress" style="width: 100%;"></div>
+      </div>
+    </div>
+
+    <div class="skill">
+      <span>Python</span>
+      <div class="progress-bar">
+        <div class="progress" style="width: 100%;"></div>
+      </div>
+    </div>
+
+    <div class="skill">
+      <span>Discord.js</span>
+      <div class="progress-bar">
+        <div class="progress" style="width: 80%;"></div>
+      </div>
+    </div>
+
+    <div class="skill">
+      <span>HTML</span>
+      <div class="progress-bar">
+        <div class="progress" style="width: 100%;"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Progetti</h2>
+
+    <div class="project">
+      <h3>Bot Discord</h3>
+      <p>Un bot personalizzato sviluppato con Discord.js per gestire server.</p>
+    </div>
+
+    <div class="project">
+      <h3>Applicazione Java</h3>
+      <p>App desktop in Java per gestione attività quotidiane.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contatti</h2>
+    <p>Email: emanuele@email.it</p>
+    <p>GitHub: <a href="https://github.com/emanuele" target="_blank">github.com/emanuele</a></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Emanuele</p>
+  </footer>
 </body>
 </html>
