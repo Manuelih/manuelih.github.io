@@ -36,7 +36,7 @@ Mi chiamo **Emanuele**, ho 18 anni e sono uno sviluppatore appassionato di progr
 
 ## 📬 Contatti
 
-- Email: emanuele@email.it  
+- Email: [Manuelih](emanuele.piferioprivate@gmail.com) 
 - GitHub: [github.com/Manuelih](https://github.com/manuelih)  
 
 ---
