@@ -31,6 +31,14 @@
     <section id="skills">
       <h2>Competenze Tecniche</h2>
 
+      <!-- BADGE -->
+      <div class="badges">
+        <img src="https://img.shields.io/badge/Java-100%25-red?logo=java" alt="Java Badge" />
+        <img src="https://img.shields.io/badge/Python-100%25-red?logo=python" alt="Python Badge" />
+        <img src="https://img.shields.io/badge/Discord.js-80%25-red?logo=discord" alt="Discord.js Badge" />
+        <img src="https://img.shields.io/badge/HTML-100%25-red?logo=html5" alt="HTML Badge" />
+      </div>
+
       <div class="skill">
         <span>Java</span>
         <div class="progress-bar">
@@ -96,11 +104,42 @@
       <h2>Contatti</h2>
       <p>📧 Email: <a href="mailto:emanuele@email.it">emanuele@email.it</a></p>
       <p>💻 GitHub: <a href="https://github.com/manuelih" target="_blank">github.com/manuelih</a></p>
+
+      <form action="https://formspree.io/f/YOUR_ID_HERE" method="POST" class="contact-form">
+        <label for="name">Nome:</label>
+        <input type="text" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" required>
+
+        <label for="message">Messaggio:</label>
+        <textarea name="message" rows="5" required></textarea>
+
+        <button type="submit">Invia Messaggio</button>
+      </form>
     </section>
   </main>
 
   <footer>
     <p>© 2025 Emanuele – Portfolio Personale</p>
   </footer>
+
+  <script>
+    const sections = document.querySelectorAll("section");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 </body>
 </html>
