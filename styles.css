@@ -1,40 +1,66 @@
-/* Reset */
+/* Reset & Base */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  cursor: crosshair;
 }
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f9f9f9;
-  color: #222;
+  background: #fff;
+  color: #111;
   line-height: 1.6;
   padding: 20px;
-  max-width: 900px;
+  max-width: 1000px;
   margin: auto;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Animazione sfondo */
+.background-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 0, 0, 0.08), transparent 70%),
+              radial-gradient(circle at 70% 70%, rgba(255, 0, 0, 0.06), transparent 70%);
+  animation: pulse 8s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.3;
+  }
 }
 
 header {
-  background: #007acc;
+  background: #c0392b;
   color: white;
   padding: 20px 0;
   margin-bottom: 30px;
   border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 900px;
-  margin: auto;
-  padding: 0 15px;
+  padding: 0 20px;
+  flex-wrap: wrap;
 }
 
 nav h1 {
   font-size: 1.8rem;
-  font-weight: bold;
 }
 
 nav ul {
@@ -46,26 +72,27 @@ nav ul {
 nav ul li a {
   color: white;
   text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
+  font-weight: bold;
+  transition: color 0.3s;
 }
 
 nav ul li a:hover {
-  color: #cce7ff;
+  color: #ffd6d6;
 }
 
 section {
   background: white;
   padding: 25px 20px;
   margin-bottom: 30px;
+  border-left: 5px solid #c0392b;
   border-radius: 8px;
-  box-shadow: 0 0 7px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 6px rgba(0,0,0,0.05);
 }
 
 h2 {
   margin-bottom: 20px;
-  color: #007acc;
-  border-bottom: 2px solid #007acc;
+  color: #c0392b;
+  border-bottom: 2px solid #c0392b;
   padding-bottom: 5px;
 }
 
@@ -74,25 +101,22 @@ h2 {
 }
 
 .skill span {
-  font-weight: 600;
+  font-weight: bold;
+  margin-bottom: 5px;
   display: block;
-  margin-bottom: 6px;
 }
 
 .progress-bar {
-  background: #ddd;
-  border-radius: 15px;
+  background: #eee;
+  border-radius: 20px;
   overflow: hidden;
   height: 20px;
-  width: 100%;
   max-width: 400px;
 }
 
 .progress {
-  background: #007acc;
+  background: #c0392b;
   height: 100%;
-  width: 0%;
-  border-radius: 15px 0 0 15px;
   transition: width 1s ease-in-out;
 }
 
@@ -101,11 +125,30 @@ h2 {
 }
 
 .project h3 {
-  margin-bottom: 8px;
+  color: #b73225;
+}
+
+.feedback {
+  background: #fef2f2;
+  border-left: 4px solid #e74c3c;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+.feedback blockquote {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.feedback cite {
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #555;
 }
 
 a {
-  color: #007acc;
+  color: #c0392b;
   text-decoration: none;
 }
 
@@ -116,20 +159,22 @@ a:hover {
 footer {
   text-align: center;
   padding: 15px 0;
-  color: #666;
+  color: #999;
   font-size: 0.9rem;
 }
 
 /* Responsive */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   nav {
-    flex-direction: column;
-    gap: 15px;
-  }
-  nav ul {
     flex-direction: column;
     gap: 10px;
   }
+
+  nav ul {
+    flex-direction: column;
+    gap: 8px;
+  }
+
   .progress-bar {
     max-width: 100%;
   }
