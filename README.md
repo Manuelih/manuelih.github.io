@@ -38,7 +38,6 @@ Mi chiamo **Emanuele**, ho 18 anni e sono uno sviluppatore appassionato di progr
 
 - Email: emanuele@email.it  
 - GitHub: [github.com/emanuele](https://github.com/emanuele)  
-- LinkedIn: *inserisci il link se ne hai uno*
 
 ---
 
