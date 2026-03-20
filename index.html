@@ -4,172 +4,701 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Portfolio di Emanuele</title>
-<link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="https://unpkg.com/@scrollreveal/scrollreveal"></script>
+  <script src="https://unpkg.com/tilt.js@1.2.1/dest/tilt.jquery.min.js"></script>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<header>
-  <h1>Emanuele</h1>
-  <nav>
+<div id="scroll-progress"></div>
+<div class="noise-overlay"></div>
+<div id="particles-js"></div>
+
+<header class="hero-header">
+  <div class="hero-content">
+    <div class="glitch-wrapper">
+      <h1 class="glitch" data-text="Emanuele">Emanuele</h1>
+    </div>
+    <p class="hero-subtitle">Crafting the Future of Minecraft & Web</p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary magnetic" data-i18n="hero.projects">Vedi Progetti</a>
+      <a href="#services" class="btn-secondary magnetic" data-i18n="hero.services">I Miei Servizi</a>
+      <a href="https://discordapp.com/users/manu_1565" class="btn-discord magnetic"><i class="fab fa-discord"></i> @manu_1565</a>
+    </div>
+    <div class="hero-scroll-hint">
+      <div class="mouse"></div>
+      <span>Scroll Down</span>
+    </div>
+  </div>
+  <nav class="sticky-nav">
     <ul>
-      <li><a href="#about">Chi Sono</a></li>
-      <li><a href="#skills">Competenze</a></li>
-      <li><a href="#projects">Progetti</a></li>
-      <li><a href="#feedback">Feedback</a></li>
-      <li><a href="#contact">Contatti</a></li>
+      <li><a href="#about" class="magnetic" data-i18n="nav.about">Chi Sono</a></li>
+      <li><a href="#services" class="magnetic" data-i18n="nav.services">Servizi</a></li>
+      <li><a href="#skills" class="magnetic" data-i18n="nav.skills">Competenze</a></li>
+      <li><a href="#projects" class="magnetic" data-i18n="nav.projects">Progetti</a></li>
+      <li><a href="#feedback" class="magnetic" data-i18n="nav.feedback">Feedback</a></li>
+      <li><a href="#faq" class="magnetic" data-i18n="nav.faq">FAQ</a></li>
+      <li>
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="it">IT</button>
+          <span>/</span>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+      </li>
     </ul>
   </nav>
 </header>
 
+<div class="preloader">
+  <div class="loader-content">
+    <div class="loader-circle"></div>
+    <div class="loader-text" data-i18n="preloader.text">Loading Emanuele's World...</div>
+    <div class="loader-progress-container">
+      <div class="loader-progress-bar"></div>
+    </div>
+  </div>
+</div>
+
+<div class="marquee">
+  <div class="marquee-content">
+    <span>MINECRAFT PLUGINS • DISCORD BOTS • PYTHON SCRIPTS • WEB DEV • UI/UX DESIGN • MINECRAFT MODS • OPTIMIZATION • SECURITY • </span>
+    <span>MINECRAFT PLUGINS • DISCORD BOTS • PYTHON SCRIPTS • WEB DEV • UI/UX DESIGN • MINECRAFT MODS • OPTIMIZATION • SECURITY • </span>
+  </div>
+</div>
+
 <main>
-  <section id="about">
-    <h2>Chi Sono</h2>
-    <p>Sono Emanuele, ho 18 anni e sono uno sviluppatore junior con passione per la programmazione, soprattutto in Java, Python, Discord.js e HTML. Amo imparare cose nuove, creare progetti utili e lavorare in team.</p>
-  </section>
-
-  <section id="skills">
-    <h2>Competenze Tecniche</h2>
-    <div class="badges">
-      <img src="https://img.shields.io/badge/Java-100%25-6a6a6a?logo=java" alt="Java Badge" />
-      <img src="https://img.shields.io/badge/Python-100%25-6a6a6a?logo=python" alt="Python Badge" />
-      <img src="https://img.shields.io/badge/Discord.js-80%25-6a6a6a?logo=discord" alt="Discord.js Badge" />
-      <img src="https://img.shields.io/badge/HTML-100%25-6a6a6a?logo=html5" alt="HTML Badge" />
+  <section id="about" class="reveal">
+    <div class="section-header">
+      <span class="section-number">01.</span>
+      <h2 data-i18n="about.title"><i class="fas fa-user-astronaut"></i> Chi Sono</h2>
     </div>
-
-    <div class="skill">
-      <span>Java</span>
-      <div class="progress-bar">
-        <div class="progress" style="width: 100%;"></div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p data-i18n="about.p1">Sono <span class="highlight">Emanuele</span>, uno sviluppatore appassionato di 18 anni specializzato nella creazione di esperienze digitali moderne. Dalle automazioni complesse in Python allo sviluppo di <span class="highlight">Plugin e Mod Minecraft</span> d'avanguardia.</p>
+        <p data-i18n="about.p2">Il mio obiettivo è spingere i confini del possibile, unendo performance e design mozzafiato.</p>
       </div>
-    </div>
-
-    <div class="skill">
-      <span>Python</span>
-      <div class="progress-bar">
-        <div class="progress" style="width: 100%;"></div>
-      </div>
-    </div>
-
-    <div class="skill">
-      <span>Discord.js</span>
-      <div class="progress-bar">
-        <div class="progress" style="width: 80%;"></div>
-      </div>
-    </div>
-
-    <div class="skill">
-      <span>HTML</span>
-      <div class="progress-bar">
-        <div class="progress" style="width: 100%;"></div>
+      <div class="about-stats">
+        <div class="stat-item">
+          <span class="stat-num">50+</span>
+          <span class="stat-label" data-i18n="about.stat1">Progetti Completati</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">100%</span>
+          <span class="stat-label" data-i18n="about.stat2">Clienti Soddisfatti</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="projects">
-    <h2>Progetti</h2>
-    <div class="project">
-      <h3>🔧 Bot Discord</h3>
-      <p>Offro pacchetti di sviluppo legati ai bot discord, per tutti i tipi ticket/music/secure etc...</p>
+  <section id="services" class="reveal">
+    <div class="section-header">
+      <span class="section-number">02.</span>
+      <h2 data-i18n="services.title"><i class="fas fa-layer-group"></i> I Miei Servizi</h2>
     </div>
-    <div class="project">
-      <h3>🖥️ App Java - Task Manager</h3>
-      <p>Applicazione desktop per la gestione di attività giornaliere. Interfaccia semplice, salvataggio locale e notifiche.</p>
-    </div>
-    <div class="project">
-      <h3>🐍 Script Python - Automazione</h3>
-      <p>Automatizzo processi ripetitivi tramite script Python personalizzati per migliorare l’efficienza.</p>
+    <div class="services-grid">
+      <div class="service-card" data-tilt>
+        <div class="service-icon"><i class="fas fa-globe"></i></div>
+        <h3 data-i18n="services.web.title">Web Developer</h3>
+        <p data-i18n="services.web.desc">Realizzazione di siti web moderni, veloci e responsive con tecnologie all'avanguardia.</p>
+        <ul class="service-list">
+          <li><i class="fas fa-check"></i> React / Next.js</li>
+          <li><i class="fas fa-check"></i> <span data-i18n="services.web.list1">Design Animato</span></li>
+          <li><i class="fas fa-check"></i> SEO Optimization</li>
+        </ul>
+      </div>
+      <div class="service-card" data-tilt>
+        <div class="service-icon"><i class="fas fa-code-branch"></i></div>
+        <h3 data-i18n="services.minecraft.title">Plugin Minecraft</h3>
+        <p data-i18n="services.minecraft.desc">Sviluppo di sistemi complessi per Paper, Spigot e Velocity. Dagli economy system a minigiochi unici.</p>
+        <ul class="service-list">
+          <li><i class="fas fa-check"></i> Database SQL/NoSQL</li>
+          <li><i class="fas fa-check"></i> NMS & Packet Manipulation</li>
+          <li><i class="fas fa-check"></i> <span data-i18n="services.minecraft.list1">Ottimizzazione estrema</span></li>
+        </ul>
+      </div>
+      <div class="service-card" data-tilt>
+        <div class="service-icon"><i class="fab fa-discord"></i></div>
+        <h3 data-i18n="services.discord.title">Discord Integration</h3>
+        <p data-i18n="services.discord.desc">Bot multifunzione con dashboard web e sincronizzazione in tempo reale tra Minecraft e Discord.</p>
+        <ul class="service-list">
+          <li><i class="fas fa-check"></i> Account Linking</li>
+          <li><i class="fas fa-check"></i> <span data-i18n="services.discord.list1">Moderazione Automatica</span></li>
+          <li><i class="fas fa-check"></i> <span data-i18n="services.discord.list2">Sistemi di Pagamento</span></li>
+        </ul>
+      </div>
+      <div class="service-card" data-tilt>
+        <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+        <h3 data-i18n="services.security.title">Security & Optimization</h3>
+        <p data-i18n="services.security.desc">Analisi di sicurezza del codice, protezione da attacchi DDoS a livello applicativo e profilazione delle performance per ridurre l'overhead di memoria e CPU.</p>
+        <ul class="service-list">
+          <li><i class="fas fa-check"></i> Code Audit</li>
+          <li><i class="fas fa-check"></i> Resource Profiling</li>
+          <li><i class="fas fa-check"></i> DDoS Mitigation</li>
+        </ul>
+      </div>
+      <div class="service-card" data-tilt>
+        <div class="service-icon"><i class="fas fa-server"></i></div>
+        <h3 data-i18n="services.backend.title">Backend Architecture</h3>
+        <p data-i18n="services.backend.desc">Progettazione di infrastrutture scalabili basate su microservizi, gestione database ad alta disponibilità e integrazione di sistemi distribuiti.</p>
+        <ul class="service-list">
+          <li><i class="fas fa-check"></i> Microservices Design</li>
+          <li><i class="fas fa-check"></i> Redis Caching</li>
+          <li><i class="fas fa-check"></i> Docker / Kubernetes</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <section id="feedback">
-    <h2>Feedback</h2>
-    <div class="feedback">
-      <blockquote>“Emanuele è affidabile, veloce e molto disponibile. Consigliatissimo!”</blockquote>
-      <cite>— Francesco R.</cite>
+  <section id="minecraft" class="reveal">
+    <div class="section-header">
+      <span class="section-number">03.</span>
+      <h2 data-i18n="mc_dev.title"><i class="fas fa-cubes"></i> Minecraft Development</h2>
     </div>
-    <div class="feedback">
-      <blockquote>“Ho acquistato un bot discord e sono rimasto impressionato dalla qualità e dalla professionalità.”</blockquote>
-      <cite>— Alice B.</cite>
-    </div>
-    <div class="feedback">
-      <blockquote>“Developer A++”</blockquote>
-      <cite>— T4ttico</cite>
+    <div class="project-grid">
+      <div class="project-card" data-tilt>
+        <div class="card-glow"></div>
+        <i class="fas fa-plug card-icon"></i>
+        <h3 data-i18n="mc_dev.backend.title">Advanced Backend Plugins</h3>
+        <p data-i18n="mc_dev.backend.desc">Sviluppo di plugin enterprise-grade per Paper, Spigot e Velocity (Proxy). Implementazione di sistemi distribuiti tramite Redis Pub/Sub, gestione persistenza dati ultra-veloce con pooling SQL (HikariCP) e ottimizzazione delle performance tramite profilazione dei thread (Spark/Timings). Utilizzo di NMS (Net.Minecraft.Server) per manipolazione avanzata di entità e pacchetti senza degradare il TPS.</p>
+        <div class="card-tags">
+          <span>Java (NMS)</span>
+          <span>Redis</span>
+          <span>HikariCP</span>
+        </div>
+      </div>
+      <div class="project-card" data-tilt>
+        <div class="card-glow"></div>
+        <i class="fas fa-hammer card-icon"></i>
+        <h3 data-i18n="mc_dev.modding.title">Low-Level Modding (Forge/Fabric)</h3>
+        <p data-i18n="mc_dev.modding.desc">Creazione di mod tecniche a basso livello utilizzando Mixins per l'injection di bytecode direttamente nella logica di gioco. Sviluppo di motori di rendering custom per item 3D, ottimizzazione delle pipeline di calcolo sul lato server e integrazione di meccaniche cross-platform. Esperienza consolidata nella risoluzione di conflitti tra mod e nel tuning del garbage collector per server ad alto carico.</p>
+        <div class="card-tags">
+          <span>Bytecode Injection</span>
+          <span>Mixins</span>
+          <span>GLSL</span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section id="contact">
-    <h2>Contatti</h2>
-    <form class="contact-form" id="contactForm">
-      <label for="name">Nome</label>
-      <input type="text" id="name" name="name" placeholder="Il tuo nome" required />
+  <section id="skills" class="reveal">
+    <div class="section-header">
+      <span class="section-number">04.</span>
+      <h2 data-i18n="skills.title"><i class="fas fa-code"></i> Competenze Tecniche</h2>
+    </div>
+    <div class="skills-container">
+      <div class="badges">
+        <div class="skill-badge"><i class="fab fa-java"></i> Java</div>
+        <div class="skill-badge"><i class="fab fa-python"></i> Python</div>
+        <div class="skill-badge"><i class="fab fa-js"></i> JavaScript</div>
+        <div class="skill-badge"><i class="fab fa-react"></i> React</div>
+        <div class="skill-badge"><i class="fab fa-node-js"></i> Node.js</div>
+        <div class="skill-badge"><i class="fab fa-html5"></i> HTML5/CSS3</div>
+        <div class="skill-badge"><i class="fas fa-database"></i> SQL/NoSQL</div>
+        <div class="skill-badge"><i class="fas fa-terminal"></i> Minecraft API</div>
+      </div>
 
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="email@example.com" required />
+      <div class="skills-bars">
+        <div class="skill">
+          <div class="skill-info">
+            <span>Java & Minecraft API</span>
+            <span>100%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress" style="width: 100%;"></div>
+          </div>
+        </div>
 
-      <label for="message">Messaggio</label>
-      <textarea id="message" name="message" rows="5" placeholder="Scrivi qui..." required></textarea>
+        <div class="skill">
+          <div class="skill-info">
+            <span>Python & Automation</span>
+            <span>100%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress" style="width: 100%;"></div>
+          </div>
+        </div>
 
-      <button type="submit">Invia</button>
-    </form>
+        <div class="skill">
+          <div class="skill-info">
+            <span>Web Development</span>
+            <span>90%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress" style="width: 90%;"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-info">
+            <span>Discord.js</span>
+            <span>85%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress" style="width: 85%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="reveal">
+    <div class="section-header">
+      <span class="section-number">05.</span>
+      <h2 data-i18n="projects.title">Progetti In Evidenza</h2>
+    </div>
+    <div class="project-grid">
+      <div class="project-card featured" data-tilt>
+        <div class="card-glow"></div>
+        <div class="project-content">
+          <h3 data-i18n="projects.p1.title">🌐 Portfolio Ultra Modern</h3>
+          <p data-i18n="projects.p1.desc">Un'esperienza immersiva con animazioni fluide e design glassmorphism, ottimizzato per massime performance web.</p>
+        </div>
+      </div>
+      <div class="project-card featured" data-tilt>
+        <div class="card-glow"></div>
+        <div class="project-content">
+          <h3 data-i18n="projects.p2.title">📦 Advanced Minecraft Modpack</h3>
+          <p data-i18n="projects.p2.desc">Ingegneria di modpack tecnici con integrazione script KubeJS per bilanciamento gameplay e stabilità server.</p>
+        </div>
+      </div>
+      <div class="project-card featured" data-tilt>
+        <div class="card-glow"></div>
+        <div class="project-content">
+          <h3 data-i18n="projects.p3.title">🔧 Ultimate Discord Bot</h3>
+          <p data-i18n="projects.p3.desc">Middleware scalabile per la gestione di server massivi: automazione security e integrazione cross-game.</p>
+        </div>
+      </div>
+      <div class="project-card featured" data-tilt>
+        <div class="card-glow"></div>
+        <div class="project-content">
+          <h3 data-i18n="projects.p4.title">🖥️ App Java - Task Manager</h3>
+          <p data-i18n="projects.p4.desc">Architettura software desktop con crittografia AES-256 e gestione multithread delle operazioni I/O.</p>
+        </div>
+      </div>
+      <div class="project-card featured" data-tilt>
+        <div class="card-glow"></div>
+        <div class="project-content">
+          <h3 data-i18n="projects.p5.title">🐍 Python Automation Suite</h3>
+          <p data-i18n="projects.p5.desc">Pipeline ETL automatizzate e strumenti di monitoraggio distribuito per l'analisi di dati in tempo reale.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="feedback" class="reveal">
+    <div class="section-header">
+      <span class="section-number">06.</span>
+      <h2 data-i18n="feedback.title"><i class="fas fa-comments"></i> Feedback Giocatori</h2>
+    </div>
+    <div class="feedback-slider">
+      <div class="feedback-card" data-tilt>
+        <div class="player-info">
+          <div class="player-avatar-wrapper">
+            <img src="https://mc-heads.net/avatar/Notch/100" alt="Notch avatar" class="player-head">
+          </div>
+          <cite>xDark_Warrior99</cite>
+        </div>
+        <blockquote data-i18n="feedback.f1">“Il plugin per il mio server Factions è perfetto! Zero lag e configurazione semplicissima.”</blockquote>
+      </div>
+      <div class="feedback-card" data-tilt>
+        <div class="player-info">
+          <div class="player-avatar-wrapper">
+            <img src="https://mc-heads.net/avatar/Dinnerbone/100" alt="Dinnerbone avatar" class="player-head">
+          </div>
+          <cite>Stev3_The_Pro</cite>
+        </div>
+        <blockquote data-i18n="feedback.f2">“Ho richiesto una mod complessa per un evento e l'ha consegnata in tempi record. Professionalità pura.”</blockquote>
+      </div>
+      <div class="feedback-card" data-tilt>
+        <div class="player-info">
+          <div class="player-avatar-wrapper">
+            <img src="https://mc-heads.net/avatar/Herobrine/100" alt="Herobrine avatar" class="player-head">
+          </div>
+          <cite>T4ttico</cite>
+        </div>
+        <blockquote data-i18n="feedback.f3">“Developer A++, il bot Discord si integra perfettamente con il server Minecraft.”</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="reveal">
+    <div class="section-header">
+      <span class="section-number">07.</span>
+      <h2 data-i18n="faq.title"><i class="fas fa-question-circle"></i> Domande Frequenti</h2>
+    </div>
+    <div class="faq-container">
+      <div class="faq-item">
+        <div class="faq-question"><span data-i18n="faq.q1.q">Come posso richiedere un plugin?</span> <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer" data-i18n="faq.q1.a">Puoi contattarmi su Discord o tramite GitHub. Solitamente rispondo in meno di 24 ore.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question"><span data-i18n="faq.q2.q">Quali versioni di Minecraft supporti?</span> <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer" data-i18n="faq.q2.a">Dalla 1.8 fino all'ultima versione disponibile. Supporto anche server legacy con ottimizzazioni moderne.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question"><span data-i18n="faq.q3.q">Fornisci assistenza post-vendita?</span> <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer" data-i18n="faq.q3.a">Sì, offro supporto gratuito per bug fix e piccole modifiche per 30 giorni dopo la consegna.</div>
+      </div>
+    </div>
   </section>
 </main>
 
 <footer>
-  &copy; 2025 Emanuele - Tutti i diritti riservati.
+  <div class="footer-content">
+    <p>&copy; 2025 <span class="highlight">Emanuele</span> - <span data-i18n="footer.built">Built with passion and code.</span></p>
+    <div class="social-links">
+      <a href="https://github.com/Manuelih"><i class="fab fa-github"></i></a>
+      <a href="https://discordapp.com/users/manu_1565"><i class="fab fa-discord"></i></a>
+    </div>
+  </div>
 </footer>
 
 <div id="cursor"></div>
-<div id="click-effect"></div>
+<div id="cursor-blur"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/tilt.js@1.2.1/dest/tilt.jquery.min.js"></script>
 
 <script>
-  // Intersection Observer per fade-in delle sezioni
-  const sections = document.querySelectorAll("section");
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
+  // --- GESTIONE PRELOADER (Deve essere eseguita per prima) ---
+  (function() {
+    const preloader = document.querySelector('.preloader');
+    const body = document.body;
+    body.style.overflow = 'hidden';
+
+    // Funzione di chiusura sicura
+    const closePreloader = () => {
+      if (preloader && preloader.style.display !== 'none') {
+        preloader.style.opacity = '0';
+        preloader.style.visibility = 'hidden';
+        body.style.overflow = '';
+        setTimeout(() => {
+          preloader.style.display = 'none';
+        }, 800);
+      }
+    };
+
+    // Forza la chiusura dopo 2 secondi esatti (richiesta utente)
+    setTimeout(closePreloader, 2000);
+
+    // Fallback se la finestra è già caricata
+    window.addEventListener('load', () => {
+      // Non facciamo nulla qui per rispettare i 2 secondi richiesti,
+      // ma ci assicuriamo che tutto sia pronto.
+    });
+  })();
+
+  // --- INIZIALIZZAZIONE LIBRERIE (In try-catch per evitare blocchi) ---
+  try {
+    particlesJS('particles-js', {
+      "particles": {
+        "number": { "value": 120, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": ["#00d4ff", "#7000ff", "#ffffff"] },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.4, "random": true },
+        "size": { "value": 2, "random": true },
+        "line_linked": { "enable": true, "distance": 120, "color": "#00d4ff", "opacity": 0.15, "width": 1 },
+        "move": { "enable": true, "speed": 3, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+        "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } }, "push": { "particles_nb": 4 } }
+      },
+      "retina_detect": true
+    });
+  } catch (e) { console.error("Particles.js error:", e); }
+
+  try {
+    ScrollReveal().reveal('.reveal', {
+      delay: 200,
+      distance: '50px',
+      origin: 'bottom',
+      duration: 1000,
+      easing: 'cubic-bezier(0.5, 0, 0, 1)',
+      interval: 100
+    });
+  } catch (e) { console.error("ScrollReveal error:", e); }
+
+  try {
+    $('[data-tilt]').tilt({
+      maxTilt: 15,
+      perspective: 1000,
+      easing: "cubic-bezier(.03,.98,.52,.99)",
+      speed: 500,
+      glare: true,
+      maxGlare: 0.2,
+    });
+  } catch (e) { console.error("Tilt.js error:", e); }
+
+  // Custom Cursor
+  const cursor = document.getElementById('cursor');
+  const cursorBlur = document.getElementById('cursor-blur');
+  const scrollProgress = document.getElementById('scroll-progress');
+
+  let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+  let cursorX = mouseX, cursorY = mouseY;
+  let blurX = mouseX, blurY = mouseY;
+
+  document.addEventListener('mousemove', e => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    
+    // Mostra il cursore se era nascosto
+    cursor.style.opacity = '1';
+    cursorBlur.style.opacity = '1';
+  });
+
+  function animateCursor() {
+    // Smooth follow logic using lerp
+    cursorX += (mouseX - cursorX) * 0.2;
+    cursorY += (mouseY - cursorY) * 0.2;
+    blurX += (mouseX - blurX) * 0.1;
+    blurY += (mouseY - blurY) * 0.1;
+
+    cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0)`;
+    cursorBlur.style.transform = `translate3d(${blurX}px, ${blurY}px, 0)`;
+
+    requestAnimationFrame(animateCursor);
+  }
+  animateCursor();
+
+  // Magnetic effect
+  const magneticElements = document.querySelectorAll('.magnetic');
+  magneticElements.forEach(el => {
+    el.addEventListener('mousemove', function(e) {
+      const rect = this.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      this.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+    });
+    el.addEventListener('mouseleave', function() {
+      this.style.transform = '';
+    });
+  });
+
+  // Cursor hover effects
+  const interactiveElements = document.querySelectorAll('a, button, .project-card, .skill-badge, .feedback-card');
+  interactiveElements.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.classList.add('hover');
+      cursorBlur.classList.add('hover');
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.classList.remove('hover');
+      cursorBlur.classList.remove('hover');
+    });
+  });
+
+  document.addEventListener('mousedown', () => {
+    cursor.style.width = '8px';
+    cursor.style.height = '8px';
+  });
+  document.addEventListener('mouseup', () => {
+    cursor.style.width = '';
+    cursor.style.height = '';
+  });
+
+  // Scroll Progress & Navbar blur
+  window.addEventListener('scroll', () => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    scrollProgress.style.width = scrolled + "%";
+  });
+
+  // FAQ Accordion
+  document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      item.classList.toggle('active');
+    });
+  });
+
+  // Smooth Scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+
+  // --- MULTI-LANGUAGE LOGIC ---
+  const translations = {
+    it: {
+      "nav.about": "Chi Sono",
+      "nav.services": "Servizi",
+      "nav.skills": "Competenze",
+      "nav.projects": "Progetti",
+      "nav.feedback": "Feedback",
+      "nav.faq": "FAQ",
+      "preloader.text": "Loading Emanuele's World...",
+      "hero.projects": "Vedi Progetti",
+      "hero.services": "I Miei Servizi",
+      "about.title": "<i class=\"fas fa-user-astronaut\"></i> Chi Sono",
+      "about.p1": "Sono <span class=\"highlight\">Emanuele</span>, uno sviluppatore appassionato di 18 anni specializzato nella creazione di esperienze digitali moderne. Dalle automazioni complesse in Python allo sviluppo di <span class=\"highlight\">Plugin e Mod Minecraft</span> d'avanguardia.",
+      "about.p2": "Il mio obiettivo è spingere i confini del possibile, unendo performance e design mozzafiato.",
+      "about.stat1": "Progetti Completati",
+      "about.stat2": "Clienti Soddisfatti",
+      "services.title": "<i class=\"fas fa-layer-group\"></i> I Miei Servizi",
+      "services.web.title": "Web Developer",
+      "services.web.desc": "Realizzazione di siti web moderni, veloci e responsive con tecnologie all'avanguardia.",
+      "services.web.list1": "Design Animato",
+      "services.minecraft.title": "Plugin Minecraft",
+      "services.minecraft.desc": "Sviluppo di sistemi complessi per Paper, Spigot e Velocity. Dagli economy system a minigiochi unici.",
+      "services.minecraft.list1": "Ottimizzazione estrema",
+      "services.discord.title": "Discord Integration",
+      "services.discord.desc": "Bot multifunzione con dashboard web e sincronizzazione in tempo reale tra Minecraft e Discord.",
+      "services.discord.list1": "Moderazione Automatica",
+      "services.discord.list2": "Sistemi di Pagamento",
+      "services.security.title": "Security & Optimization",
+      "services.security.desc": "Analisi di sicurezza del codice, protezione da attacchi DDoS a livello applicativo e profilazione delle performance per ridurre l'overhead di memoria e CPU.",
+      "services.backend.title": "Backend Architecture",
+      "services.backend.desc": "Progettazione di infrastrutture scalabili basate su microservizi, gestione database ad alta disponibilità e integrazione di sistemi distribuiti.",
+      "mc_dev.title": "<i class=\"fas fa-cubes\"></i> Minecraft Development",
+      "mc_dev.backend.title": "Advanced Backend Plugins",
+      "mc_dev.backend.desc": "Sviluppo di plugin enterprise-grade per Paper, Spigot e Velocity (Proxy). Implementazione di sistemi distribuiti tramite Redis Pub/Sub, gestione persistenza dati ultra-veloce con pooling SQL (HikariCP) e ottimizzazione delle performance tramite profilazione dei thread (Spark/Timings). Utilizzo di NMS (Net.Minecraft.Server) per manipolazione avanzata di entità e pacchetti senza degradare il TPS.",
+      "mc_dev.modding.title": "Low-Level Modding (Forge/Fabric)",
+      "mc_dev.modding.desc": "Creazione di mod tecniche a basso livello utilizzando Mixins per l'injection di bytecode direttamente nella logica di gioco. Sviluppo di motori di rendering custom per item 3D, ottimizzazione delle pipeline di calcolo sul lato server e integrazione di meccaniche cross-platform. Esperienza consolidata nella risoluzione di conflitti tra mod e nel tuning del garbage collector per server ad alto carico.",
+      "skills.title": "<i class=\"fas fa-code\"></i> Competenze Tecniche",
+      "projects.title": "Progetti In Evidenza",
+      "projects.p1.title": "🌐 Portfolio Ultra Modern",
+      "projects.p1.desc": "Un'esperienza immersiva con animazioni fluide e design glassmorphism, ottimizzato per massime performance web.",
+      "projects.p2.title": "📦 Advanced Minecraft Modpack",
+      "projects.p2.desc": "Ingegneria di modpack tecnici con integrazione script KubeJS per bilanciamento gameplay e stabilità server.",
+      "projects.p3.title": "🔧 Ultimate Discord Bot",
+      "projects.p3.desc": "Middleware scalabile per la gestione di server massivi: automazione security e integrazione cross-game.",
+      "projects.p4.title": "🖥️ App Java - Task Manager",
+      "projects.p4.desc": "Architettura software desktop con crittografia AES-256 e gestione multithread delle operazioni I/O.",
+      "projects.p5.title": "🐍 Python Automation Suite",
+      "projects.p5.desc": "Pipeline ETL automatizzate e strumenti di monitoraggio distribuito per l'analisi di dati in tempo reale.",
+      "feedback.title": "<i class=\"fas fa-comments\"></i> Feedback Giocatori",
+      "feedback.f1": "“Il plugin per il mio server Factions è perfetto! Zero lag e configurazione semplicissima.”",
+      "feedback.f2": "“Ho richiesto una mod complessa per un evento e l'ha consegnata in tempi record. Professionalità pura.”",
+      "feedback.f3": "“Developer A++, il bot Discord si integra perfettamente con il server Minecraft.”",
+      "faq.title": "<i class=\"fas fa-question-circle\"></i> Domande Frequenti",
+      "faq.q1.q": "Come posso richiedere un plugin?",
+      "faq.q1.a": "Puoi contattarmi su Discord o tramite GitHub. Solitamente rispondo in meno di 24 ore.",
+      "faq.q2.q": "Quali versioni di Minecraft supporti?",
+      "faq.q2.a": "Dalla 1.8 fino all'ultima versione disponibile. Supporto anche server legacy con ottimizzazioni moderne.",
+      "faq.q3.q": "Fornisci assistenza post-vendita?",
+      "faq.q3.a": "Sì, offro supporto gratuito per bug fix e piccole modifiche per 30 giorni dopo la consegna.",
+      "footer.built": "Built with passion and code."
+    },
+    en: {
+      "nav.about": "About Me",
+      "nav.services": "Services",
+      "nav.skills": "Skills",
+      "nav.projects": "Projects",
+      "nav.feedback": "Feedback",
+      "nav.faq": "FAQ",
+      "preloader.text": "Loading Emanuele's World...",
+      "hero.projects": "View Projects",
+      "hero.services": "My Services",
+      "about.title": "<i class=\"fas fa-user-astronaut\"></i> About Me",
+      "about.p1": "I am <span class=\"highlight\">Emanuele</span>, a passionate 18-year-old developer specializing in creating modern digital experiences. From complex Python automations to cutting-edge <span class=\"highlight\">Minecraft Plugins and Mods</span>.",
+      "about.p2": "My goal is to push the boundaries of what's possible, combining performance and breathtaking design.",
+      "about.stat1": "Projects Completed",
+      "about.stat2": "Happy Clients",
+      "services.title": "<i class=\"fas fa-layer-group\"></i> My Services",
+      "services.web.title": "Web Developer",
+      "services.web.desc": "Creation of modern, fast, and responsive websites with cutting-edge technologies.",
+      "services.web.list1": "Animated Design",
+      "services.minecraft.title": "Minecraft Plugins",
+      "services.minecraft.desc": "Development of complex systems for Paper, Spigot, and Velocity. From economy systems to unique minigames.",
+      "services.minecraft.list1": "Extreme Optimization",
+      "services.discord.title": "Discord Integration",
+      "services.discord.desc": "Multifunctional bots with web dashboards and real-time synchronization between Minecraft and Discord.",
+      "services.discord.list1": "Auto Moderation",
+      "services.discord.list2": "Payment Systems",
+      "services.security.title": "Security & Optimization",
+      "services.security.desc": "Code security analysis, application-level DDoS protection, and performance profiling to reduce memory and CPU overhead.",
+      "services.backend.title": "Backend Architecture",
+      "services.backend.desc": "Design of scalable infrastructures based on microservices, high-availability database management, and distributed systems integration.",
+      "mc_dev.title": "<i class=\"fas fa-cubes\"></i> Minecraft Development",
+      "mc_dev.backend.title": "Advanced Backend Plugins",
+      "mc_dev.backend.desc": "Enterprise-grade plugin development for Paper, Spigot, and Velocity (Proxy). Implementation of distributed systems via Redis Pub/Sub, ultra-fast data persistence with SQL pooling (HikariCP), and performance optimization through thread profiling (Spark/Timings). Use of NMS (Net.Minecraft.Server) for advanced entity and packet manipulation without TPS degradation.",
+      "mc_dev.modding.title": "Low-Level Modding (Forge/Fabric)",
+      "mc_dev.modding.desc": "Technical low-level mod creation using Mixins for direct bytecode injection into game logic. Development of custom rendering engines for 3D items, optimization of server-side computation pipelines, and cross-platform mechanics integration. Solid experience in mod conflict resolution and garbage collector tuning for high-load servers.",
+      "skills.title": "<i class=\"fas fa-code\"></i> Technical Skills",
+      "projects.title": "Featured Projects",
+      "projects.p1.title": "🌐 Ultra Modern Portfolio",
+      "projects.p1.desc": "An immersive experience with fluid animations and glassmorphism design, optimized for maximum web performance.",
+      "projects.p2.title": "📦 Advanced Minecraft Modpack",
+      "projects.p2.desc": "Technical modpack engineering with KubeJS script integration for gameplay balancing and server stability.",
+      "projects.p3.title": "🔧 Ultimate Discord Bot",
+      "projects.p3.desc": "Scalable middleware for managing massive servers: security automation and cross-game integration.",
+      "projects.p4.title": "🖥️ Java App - Task Manager",
+      "projects.p4.desc": "Desktop software architecture with AES-256 encryption and multithreaded I/O operations management.",
+      "projects.p5.title": "🐍 Python Automation Suite",
+      "projects.p5.desc": "Automated ETL pipelines and distributed monitoring tools for real-time data analysis.",
+      "feedback.title": "<i class=\"fas fa-comments\"></i> Player Feedback",
+      "feedback.f1": "“The plugin for my Factions server is perfect! Zero lag and very easy configuration.”",
+      "feedback.f2": "“I requested a complex mod for an event and he delivered in record time. Pure professionalism.”",
+      "feedback.f3": "“A++ Developer, the Discord bot integrates perfectly with the Minecraft server.”",
+      "faq.title": "<i class=\"fas fa-question-circle\"></i> Frequently Asked Questions",
+      "faq.q1.q": "How can I request a plugin?",
+      "faq.q1.a": "You can contact me on Discord or via GitHub. I usually respond in less than 24 hours.",
+      "faq.q2.q": "Which Minecraft versions do you support?",
+      "faq.q2.a": "From 1.8 to the latest available version. I also support legacy servers with modern optimizations.",
+      "faq.q3.q": "Do you provide after-sales support?",
+      "faq.q3.a": "Yes, I offer free support for bug fixes and minor changes for 30 days after delivery.",
+      "footer.built": "Built with passion and code."
+    }
+  };
+
+  function setLanguage(lang) {
+    localStorage.setItem('preferredLang', lang);
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (translations[lang][key]) {
+        el.innerHTML = translations[lang][key];
       }
     });
-  }, { threshold: 0.15 });
+    
+    // Update active button
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+    });
 
-  sections.forEach(section => {
-    observer.observe(section);
+    // Update HTML lang attribute
+    document.documentElement.lang = lang;
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      setLanguage(btn.getAttribute('data-lang'));
+    });
   });
 
-  // Cursor personalizzato e effetto click
-  const cursor = document.getElementById('cursor');
-  const clickEffect = document.getElementById('click-effect');
+  // Initialize language
+  const savedLang = localStorage.getItem('preferredLang') || 'it';
+  setLanguage(savedLang);
 
-  window.addEventListener('mousemove', e => {
-    cursor.style.left = e.pageX + 'px';
-    cursor.style.top = e.pageY + 'px';
-    clickEffect.style.left = e.pageX + 'px';
-    clickEffect.style.top = e.pageY + 'px';
-  });
-
-  window.addEventListener('mousedown', () => {
-    cursor.classList.add('click');
-  });
-
-  window.addEventListener('mouseup', () => {
-    cursor.classList.remove('click');
-  });
-
-  window.addEventListener('click', () => {
-    clickEffect.classList.add('active');
-    setTimeout(() => clickEffect.classList.remove('active'), 400);
-  });
-
-  // Form contatti: alert di ringraziamento (solo demo)
+  // Form Submission (Disabilitato se il form non esiste)
   const form = document.getElementById('contactForm');
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    alert('Grazie per avermi contattato, ti risponderò presto!');
-    form.reset();
-  });
+  if (form) {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const btn = form.querySelector('button');
+      btn.innerHTML = '<span>Inviato!</span> <i class="fas fa-check"></i>';
+      btn.style.background = '#00ff88';
+      setTimeout(() => {
+        form.reset();
+        btn.innerHTML = '<span>Invia Messaggio</span> <i class="fas fa-bolt"></i>';
+        btn.style.background = '';
+      }, 3000);
+    });
+  }
 </script>
 
 </body>
 </html>
-
 
