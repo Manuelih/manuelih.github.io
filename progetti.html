@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Progetti reali di Emanuele: plugin Minecraft enterprise, bot Discord, web app e tool. Filtrabili per categoria." />
+<meta name="theme-color" content="#0a0a0c" />
+<title>Progetti — Emanuele</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%230a0a0c'/%3E%3Ctext x='12' y='17' font-family='Arial' font-weight='700' font-size='14' fill='%232f81f7' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="projects">
+
+<svg style="display:none" aria-hidden="true">
+  <symbol id="icon-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.5 3.6-7 8-7s8 2.5 8 7"/></symbol>
+  <symbol id="icon-layers" viewBox="0 0 24 24"><polygon points="12 3 21 8 12 13 3 8"/><polyline points="3 13 12 18 21 13"/><polyline points="3 17.5 12 22 21 17.5"/></symbol>
+  <symbol id="icon-cubes" viewBox="0 0 24 24"><polygon points="12 2 21 7 21 17 12 22 3 17 3 7"/><polyline points="3 7 12 12 21 7"/><line x1="12" y1="12" x2="12" y2="22"/></symbol>
+  <symbol id="icon-code" viewBox="0 0 24 24"><polyline points="9 6 3 12 9 18"/><polyline points="15 6 21 12 15 18"/></symbol>
+  <symbol id="icon-comments" viewBox="0 0 24 24"><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3h13A2.5 2.5 0 0 1 21 5.5v9A2.5 2.5 0 0 1 18.5 17H9l-5 4v-4H5.5A2.5 2.5 0 0 1 3 14.5Z"/></symbol>
+  <symbol id="icon-message" viewBox="0 0 24 24"><path d="M4 4h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H9l-4 4v-4H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Z"/></symbol>
+  <symbol id="icon-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.2 9.5a2.8 2.8 0 1 1 3.9 2.9c-.9.5-1.4 1-1.4 2.1"/><line x1="12" y1="17.2" x2="12.01" y2="17.2"/></symbol>
+  <symbol id="icon-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></symbol>
+  <symbol id="icon-check" viewBox="0 0 24 24"><polyline points="4 12.5 9.5 18 20 6"/></symbol>
+  <symbol id="icon-server" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><line x1="7" y1="7" x2="7.01" y2="7"/><line x1="7" y1="17" x2="7.01" y2="17"/></symbol>
+  <symbol id="icon-hammer" viewBox="0 0 24 24"><path d="M14.5 3.5 20 9l-2 2-5.5-5.5Z"/><path d="M12 8 4 16a2 2 0 0 0 0 3l1 1a2 2 0 0 0 3 0l8-8"/></symbol>
+  <symbol id="icon-bot" viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="12" rx="3"/><line x1="12" y1="4" x2="12" y2="8"/><circle cx="12" cy="3" r="1.2"/><circle cx="9" cy="14" r="1.3"/><circle cx="15" cy="14" r="1.3"/></symbol>
+  <symbol id="icon-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><line x1="3" y1="12" x2="21" y2="12"/></symbol>
+  <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.4 8.2 8 9 4.6-.8 8-4 8-9V6Z"/><polyline points="9 12 11.3 14.3 15.5 9.8"/></symbol>
+  <symbol id="icon-coins" viewBox="0 0 24 24"><circle cx="9" cy="9" r="6"/><circle cx="15" cy="15" r="6"/></symbol>
+  <symbol id="icon-landmark" viewBox="0 0 24 24"><polyline points="3 9 12 3 21 9"/><line x1="4" y1="9" x2="20" y2="9"/><line x1="5" y1="9" x2="5" y2="18"/><line x1="9" y1="9" x2="9" y2="18"/><line x1="15" y1="9" x2="15" y2="18"/><line x1="19" y1="9" x2="19" y2="18"/><line x1="3" y1="21" x2="21" y2="21"/></symbol>
+  <symbol id="icon-water" viewBox="0 0 24 24"><path d="M2 8c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2"/><path d="M2 14c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2"/><path d="M2 20c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2"/></symbol>
+  <symbol id="icon-bolt" viewBox="0 0 24 24"><polygon points="13 2 4 14 11 14 10 22 20 9 13 9"/></symbol>
+  <symbol id="icon-paper-plane" viewBox="0 0 24 24"><path d="M21 3 3 10.5l7 2.5 2.5 7Z"/><line x1="21" y1="3" x2="12.5" y2="14"/></symbol>
+  <symbol id="icon-puzzle" viewBox="0 0 24 24"><path d="M9 4h4a1 1 0 0 1 1 1v2.2a1.8 1.8 0 1 0 0 3.6V13a1 1 0 0 1-1 1h-2.2a1.8 1.8 0 1 1-3.6 0H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h2.2a1.8 1.8 0 1 0 0-3.6V4a1 1 0 0 1 1-1Z"/></symbol>
+  <symbol id="icon-git-branch" viewBox="0 0 24 24"><line x1="7" y1="4" x2="7" y2="14"/><circle cx="7" cy="17" r="2.2"/><circle cx="7" cy="4" r="2.2"/><circle cx="17" cy="7" r="2.2"/><path d="M17 9.2V11a5 5 0 0 1-5 5H9"/></symbol>
+  <symbol id="icon-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 6.5 12 13 21 6.5"/></symbol>
+  <symbol id="icon-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="icon-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="8 12.5 11 15.5 16 9"/></symbol>
+</svg>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">Emanuele<span class="accent">.</span></a>
+    <nav class="main-nav">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="progetti.html" class="active" data-i18n="nav.projects">Progetti</a>
+      <a href="chi-sono.html" data-i18n="nav.about">Chi Sono</a>
+      <a href="contatti.html" data-i18n="nav.contact">Contatti</a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang-switcher"><button class="lang-btn active" data-lang="it">it</button><span>/</span><button class="lang-btn" data-lang="en">en</button></div>
+      <a href="contatti.html" class="btn btn-primary" data-i18n="nav.cta">Contattami</a>
+      <button class="menu-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <nav class="mobile-nav">
+    <a href="index.html" data-i18n="nav.home">Home</a>
+    <a href="progetti.html" class="active" data-i18n="nav.projects">Progetti</a>
+    <a href="chi-sono.html" data-i18n="nav.about">Chi Sono</a>
+    <a href="contatti.html" data-i18n="nav.contact">Contatti</a>
+    <a href="contatti.html" class="btn btn-primary" data-i18n="nav.cta">Contattami</a>
+  </nav>
+</header>
+
+<main>
+  <div class="page-header">
+    <div class="eyebrow" data-i18n="projects.eyebrow">Progetti</div>
+    <h1 data-i18n="projects.h1">Tutti i Progetti</h1>
+    <p class="page-lead" data-i18n="projects.lead">Progetti reali sviluppati per client e community private. Descritti nel dettaglio, senza link diretti — il codice non è mio da pubblicare.</p>
+  </div>
+
+  <section class="reveal" style="padding-top:0">
+    <div class="section-inner">
+      <p class="page-lead" style="margin-bottom:28px;font-size:0.9rem" data-i18n="projects.note">Perché non ci sono link? Sono tutti progetti per client privati.</p>
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all" data-i18n="filter.all">Tutti</button>
+        <button class="filter-btn" data-filter="minecraft" data-i18n="filter.minecraft">Minecraft</button>
+        <button class="filter-btn" data-filter="discord" data-i18n="filter.discord">Discord Bot</button>
+        <button class="filter-btn" data-filter="web" data-i18n="filter.web">Web</button>
+        <button class="filter-btn" data-filter="tool" data-i18n="filter.tool">Tool</button>
+      </div>
+      <div class="card-grid">
+
+        <a href="progetto-felonycore.html" class="card project-card" data-cats="minecraft">
+          <div class="project-card-top"><div class="card-icon"><svg class="icon"><use href="#icon-coins"></use></svg></div><span class="project-badge"><svg class="icon"><use href="#icon-lock"></use></svg><span data-i18n="p.felonycore.badge">Progetto privato</span></span></div>
+          <h3 data-i18n="p.felonycore.title">FelonyCore — Core Economy &amp; Prison</h3>
+          <p data-i18n="p.felonycore.desc">...</p>
+          <div class="tag-row"><span class="tag">Paper 1.21</span><span class="tag">Java 21</span><span class="tag">MySQL</span><span class="tag">HikariCP</span></div>
+          <div class="project-cats"><span class="cat-pill" data-i18n="filter.minecraft">Minecraft</span></div>
+        </a>
+
+        <a href="progetto-realistic-suite.html" class="card project-card" data-cats="minecraft">
+          <div class="project-card-top"><div class="card-icon"><svg class="icon"><use href="#icon-landmark"></use></svg></div><span class="project-badge"><svg class="icon"><use href="#icon-lock"></use></svg><span data-i18n="p.realistic-suite.badge">Progetto privato</span></span></div>
+          <h3 data-i18n="p.realistic-suite.title">Suite Realistic* — Roleplay Modulare</h3>
+          <p data-i18n="p.realistic-suite.desc">...</p>
+          <div class="tag-row"><span class="tag">Paper</span><span class="tag">Java</span><span class="tag">Maven/Gradle</span><span class="tag">MySQL</span></div>
+          <div class="project-cats"><span class="cat-pill" data-i18n="filter.minecraft">Minecraft</span></div>
+        </a>
+
+        <a href="progetto-acquatic-suite.html" class="card project-card" data-cats="minecraft">
+          <div class="project-card-top"><div class="card-icon"><svg class="icon"><use href="#icon-water"></use></svg></div><span class="project-badge"><svg class="icon"><use href="#icon-lock"></use></svg><span data-i18n="p.acquatic-suite.badge">Progetto privato</span></span></div>
+          <h3 data-i18n="p.acquatic-suite.title">Suite Acquatic — Network Proxy + Paper</h3>
+          <p data-i18n="p.acquatic-suite.desc">...</p>
+          <div class="tag-row"><span class="tag">Velocity</span><span class="tag">Paper</span><span class="tag">Java 21</span><span class="tag">WorldGuard</span></div>
+          <div class="project-cats"><span class="cat-pill" data-i18n="filter.minecraft">Minecraft</span></div>
+        </a>
+
+        <a href="progetto-voltick.html" class="card project-card" data-cats="minecraft,tool">
+          <div class="project-card-top"><div class="card-icon"><svg class="icon"><use href="#icon-bolt"></use></svg></div><span class="project-badge live"><svg class="icon"><use href="#icon-check-circle"></use></svg><span data-i18n="p.voltick.badge">Live in produzione</span></span></div>
+          <h3 data-i18n="p.voltick.title">Voltick — Performance Profiler</h3>
+          <p data-i18n="p.voltick.desc">...</p>
+          <div class="tag-row"><span class="tag">Java</span><span class="tag">Express</span><span class="tag">SQLite</span></div>
+          <div class="project-cats"><span class="cat-pill" data-i18n="filter.minecraft">Minecraft</span><span class="cat-pill" data-i18n="filter.tool">Tool</span></div>
+        </a>
+
+        <a href="progetto-community-platform.html" class="card project-card" data-cats="web">
+          <div class="project-card-top"><div class="card-icon"><svg class="icon"><use href="#icon-comments"></use></svg></div><span class="project-badge"><svg class="icon"><use href="#icon-lock"></use></svg><span data-i18n="p.community-platform.badge">Progetto privato</span></span></div>
+          <h3 data-i18n="p.community-platform.title">Piattaforma Web Comunitaria</h3>
+          <p data-i18n="p.community-platform.desc">...</p>
+          <div class="tag-row"><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">Forum</span></div>
+          <div class="project-cats"><span class="cat-pill" data-i18n="filter.web">Web</span></div>
+        </a>
+
+        <a href="progetto-discord-bots.html" class="card project-card" data-cats="discord">
+          <div class="project-card-top"><div class="card-icon"><svg class="icon"><use href="#icon-message"></use></svg></div><span class="project-badge"><svg class="icon"><use href="#icon-lock"></use></svg><span data-i18n="p.discord-bots.badge">Progetto privato</span></span></div>
+          <h3 data-i18n="p.discord-bots.title">Bot Discord per Vendite &amp; Automazioni</h3>
+          <p data-i18n="p.discord-bots.desc">...</p>
+          <div class="tag-row"><span class="tag">discord.py</span><span class="tag">discord.js v14</span><span class="tag">Components V2</span></div>
+          <div class="project-cats"><span class="cat-pill" data-i18n="filter.discord">Discord Bot</span></div>
+        </a>
+
+        <a href="progetto-anongram.html" class="card project-card" data-cats="tool">
+          <div class="project-card-top"><div class="card-icon"><svg class="icon"><use href="#icon-paper-plane"></use></svg></div><span class="project-badge"><svg class="icon"><use href="#icon-lock"></use></svg><span data-i18n="p.anongram.badge">Progetto privato</span></span></div>
+          <h3 data-i18n="p.anongram.title">AnonGram — Client Telegram Desktop</h3>
+          <p data-i18n="p.anongram.desc">...</p>
+          <div class="tag-row"><span class="tag">Python</span><span class="tag">Telethon</span><span class="tag">PySide6/Qt</span></div>
+          <div class="project-cats"><span class="cat-pill" data-i18n="filter.tool">Tool</span></div>
+        </a>
+
+        <a href="progetto-chrome-extension.html" class="card project-card" data-cats="tool,web">
+          <div class="project-card-top"><div class="card-icon"><svg class="icon"><use href="#icon-puzzle"></use></svg></div><span class="project-badge"><svg class="icon"><use href="#icon-lock"></use></svg><span data-i18n="p.chrome-extension.badge">Progetto privato</span></span></div>
+          <h3 data-i18n="p.chrome-extension.title">Estensione Chrome per Notifiche Live</h3>
+          <p data-i18n="p.chrome-extension.desc">...</p>
+          <div class="tag-row"><span class="tag">Manifest V3</span><span class="tag">WebSocket/SignalR</span></div>
+          <div class="project-cats"><span class="cat-pill" data-i18n="filter.tool">Tool</span><span class="cat-pill" data-i18n="filter.web">Web</span></div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo">Emanuele<span class="accent">.</span></span>
+        <p data-i18n="footer.tagline">Sviluppatore full-stack: plugin Minecraft enterprise, bot Discord, web e automazione.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h5 data-i18n="footer.col1.title">Naviga</h5>
+          <a href="index.html" data-i18n="nav.home">Home</a>
+          <a href="progetti.html" data-i18n="nav.projects">Progetti</a>
+          <a href="chi-sono.html" data-i18n="nav.about">Chi Sono</a>
+          <a href="contatti.html" data-i18n="nav.contact">Contatti</a>
+        </div>
+        <div class="footer-col">
+          <h5 data-i18n="footer.col2.title">Contatti</h5>
+          <a href="https://discordapp.com/users/manu_1565" target="_blank" rel="noopener">Discord</a>
+          <a href="https://github.com/Manuelih" target="_blank" rel="noopener">GitHub</a>
+          <a href="mailto:emanuele.piferioprivate@gmail.com">Email</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom"><span data-i18n="footer.rights">&copy; 2026 Emanuele</span></div>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
