@@ -17,7 +17,7 @@
 </head>
 <body>
 
-<div class="bg" aria-hidden="true"><div class="bg-grid"></div><div class="bg-glow"></div></div>
+<div class="bg" aria-hidden="true"><pre class="bg-code" id="bg-code"></pre><div class="bg-glow"></div></div>
 
 <header class="nav" id="top">
   <a href="#top" class="brand"><span class="brand-caret">~/</span>mqnuu<span class="cursor">_</span></a>
@@ -72,8 +72,8 @@
 
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
-      <span>Java 21</span><span>Paper</span><span>Velocity</span><span>Fabric</span><span>Forge</span><span>Mixin</span><span>GeckoLib</span><span>MySQL</span><span>HikariCP</span><span>Redis</span><span>discord.js</span><span>discord.py</span><span>Node.js</span><span>Next.js</span><span>Python</span><span>Linux</span>
-      <span>Java 21</span><span>Paper</span><span>Velocity</span><span>Fabric</span><span>Forge</span><span>Mixin</span><span>GeckoLib</span><span>MySQL</span><span>HikariCP</span><span>Redis</span><span>discord.js</span><span>discord.py</span><span>Node.js</span><span>Next.js</span><span>Python</span><span>Linux</span>
+      <span>Java 21</span><span>Paper</span><span>Velocity</span><span>Fabric</span><span>Forge</span><span>Mixin</span><span>GeckoLib</span><span>MySQL</span><span>HikariCP</span><span>Redis</span><span>discord.js</span><span>discord.py</span><span>Node.js</span><span>Next.js</span><span>Python</span><span>Electron</span><span>GLSL</span><span>Linux</span>
+      <span>Java 21</span><span>Paper</span><span>Velocity</span><span>Fabric</span><span>Forge</span><span>Mixin</span><span>GeckoLib</span><span>MySQL</span><span>HikariCP</span><span>Redis</span><span>discord.js</span><span>discord.py</span><span>Node.js</span><span>Next.js</span><span>Python</span><span>Electron</span><span>GLSL</span><span>Linux</span>
     </div>
   </div>
 
@@ -86,8 +86,12 @@
         <p data-i18n="about.p3">Mi piacciono i sistemi piccoli e affidabili: pochi pezzi, ognuno con un compito chiaro, che non si rompono quando arrivano duecento giocatori insieme.</p>
       </div>
       <aside class="about-card">
-        <div class="about-avatar"><span>m</span></div>
-        <div>
+        <figure class="shot">
+          <img src="img/me.png" alt="Emanuele" width="256" height="256" loading="lazy">
+          <span class="shot-corner tl"></span><span class="shot-corner tr"></span><span class="shot-corner bl"></span><span class="shot-corner br"></span>
+          <figcaption><span class="rec">● rec</span><span>me.png</span></figcaption>
+        </figure>
+        <div class="about-who">
           <strong>Emanuele</strong>
           <span class="mono-dim" data-i18n="about.card">Java Developer · Full-Stack</span>
         </div>
@@ -120,10 +124,9 @@
     <p class="sec-sub" data-i18n="projects.sub">Quasi tutto è stato scritto per server e clienti privati, quindi il codice non è pubblico. Clicca una card per i dettagli tecnici.</p>
     <div class="filters" role="tablist">
       <button class="on" data-f="all" data-i18n="f.all">tutti</button>
-      <button data-f="mc">minecraft</button>
-      <button data-f="discord">discord</button>
-      <button data-f="web">web</button>
-      <button data-f="tool">tool</button>
+      <button data-f="plugin">plugin</button>
+      <button data-f="mod">mod</button>
+      <button data-f="app">app &amp; bot</button>
     </div>
     <div class="grid" id="grid"></div>
   </section>
@@ -146,10 +149,8 @@
         <p class="sec-sub" data-i18n="contact.sub">Raccontami cosa ti serve, tempi e budget indicativi. Rispondo di solito in giornata.</p>
       </div>
       <div class="links">
-        <a class="link" href="https://discord.com/users/manu_1565" target="_blank" rel="noopener"><span class="link-k">discord</span><span class="link-v">@manu_1565</span><span class="arrow">↗</span></a>
-        <a class="link" href="https://github.com/Manuelih" target="_blank" rel="noopener"><span class="link-k">github</span><span class="link-v">Manuelih</span><span class="arrow">↗</span></a>
-        <a class="link" href="mailto:emanuele.piferioprivate@gmail.com"><span class="link-k">email</span><span class="link-v">emanuele.piferioprivate@gmail.com</span><span class="arrow">↗</span></a>
-      </div>
+        <button class="link" type="button" data-copy="51wj"><span class="link-k">discord</span><span class="link-v">@51wj</span><span class="arrow" data-i18n="contact.copy">copia</span></button>
+        <a class="link" href="https://github.com/Manuelih" target="_blank" rel="noopener"><span class="link-k">github</span><span class="link-v">Manuelih</span><span class="arrow">↗</span></a>      </div>
     </div>
   </section>
 
