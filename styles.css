@@ -121,6 +121,7 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
 .btn-line { border: 1px solid var(--line-2); color: var(--text); }
 .btn-line:hover { border-color: var(--red); background: var(--red-soft); }
 
+.hero-text, .hero-side, .about > *, .contact > * { min-width: 0; }
 .hero-side { display: flex; flex-direction: column; gap: 14px; }
 .term {
   background: linear-gradient(180deg, var(--card-2), var(--card));
@@ -280,7 +281,7 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
 @keyframes pop { from { opacity: 0; transform: translateY(12px) scale(.98); } }
 
 @media (max-width: 960px) {
-  .hero { grid-template-columns: 1fr; min-height: 0; gap: 40px; padding-top: 36px; }
+  .hero { grid-template-columns: minmax(0, 1fr); min-height: 0; gap: 40px; padding-top: 36px; }
   .term { transform: none; }
   .about, .contact { grid-template-columns: 1fr; gap: 32px; }
   .grid { grid-template-columns: 1fr 1fr; }
