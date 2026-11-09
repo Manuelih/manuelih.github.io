@@ -2,53 +2,47 @@
   'use strict';
 
   const CODE = [
-    'package me.manudev.core;',
+    'package dev.mqnuu.portfolio;',
     '',
-    'import org.bukkit.plugin.java.JavaPlugin;',
-    'import java.util.concurrent.CompletableFuture;',
+    'import java.time.Year;',
+    'import java.util.List;',
     '',
-    'public final class Core extends JavaPlugin {',
+    'public final class Developer {',
     '',
-    '    private final ModuleRegistry modules = new ModuleRegistry(this);',
-    '    private Database database;',
+    '    private final String name = "Emanuele";',
+    '    private final String alias = "mqnuu";',
+    '    private final Year since = Year.of(2022);',
     '',
-    '    @Override',
-    '    public void onEnable() {',
-    '        database = Database.connect(getConfig().getConfigurationSection("database"));',
-    '        modules.discover("me.manudev.core.modules");',
-    '        modules.enableAll();',
-    '        getLogger().info("pronto: " + modules.size() + " moduli attivi");',
+    '    private final List<String> stack = List.of(',
+    '        "Java", "Kotlin", "Paper", "Velocity", "Fabric", "Forge", "Redis", "Lua"',
+    '    );',
+    '',
+    '    // il server pieno non deve accorgersi del mio codice',
+    '    public List<Service> services() {',
+    '        return List.of(',
+    '            new Service("core modulari", Scope.SERVER),',
+    '            new Service("mod complete", Scope.CLIENT_AND_SERVER),',
+    '            new Service("plugin su misura", Scope.SERVER),',
+    '            new Service("ottimizzazione", Scope.PERFORMANCE)',
+    '        );',
     '    }',
     '',
-    '    // mai query sul main thread',
-    '    public CompletableFuture<Profile> profile(UUID id) {',
-    '        return cache.get(id, key -> database.async(() -> profiles.load(key)));',
+    '    public int yearsOfCode() {',
+    '        return Year.now().getValue() - since.getValue();',
     '    }',
     '',
-    '    @EventHandler(priority = EventPriority.MONITOR)',
-    '    public void onJoin(PlayerJoinEvent event) {',
-    '        Player player = event.getPlayer();',
-    '        profile(player.getUniqueId()).thenAccept(p -> sync(() -> p.apply(player)));',
+    '    public boolean isAvailable() {',
+    '        return true;',
     '    }',
     '',
-    '    @Override',
-    '    public void onDisable() {',
-    '        modules.disableAll();',
-    '        database.close();',
+    '    public void ship(Project project) {',
+    '        project.build();',
+    '        project.test();',
+    '        project.deploy();',
     '    }',
-    '}',
     '',
-    'final class SwingIntegrator {',
-    '',
-    '    Vector step(Vector pos, Vector vel, Vector anchor, double rope, int substeps) {',
-    '        double dt = 1.0 / substeps;',
-    '        for (int i = 0; i < substeps; i++) {',
-    '            vel.add(GRAVITY.clone().multiply(dt));',
-    '            pos.add(vel.clone().multiply(dt));',
-    '            Vector d = pos.clone().subtract(anchor);',
-    '            if (d.length() > rope) pos = anchor.clone().add(d.normalize().multiply(rope));',
-    '        }',
-    '        return vel;',
+    '    public String contact() {',
+    '        return "discord: @51wj";',
     '    }',
     '}'
   ];
@@ -59,11 +53,11 @@
     'hero.status': 'open to new projects',
     'hero.lead': "I'm Emanuele, 20. I build cores, plugins and complete mods for Minecraft servers: systems made to hold up under load and to be maintained over time, not patches that break on the next update.",
     'hero.cta1': 'what I can build', 'hero.cta2': 'contact me',
-    'stat.years': 'years of code', 'stat.projects': 'projects shipped', 'stat.reply': 'to get a reply',
+    'stat.years': "years of code", 'stat.projects': 'projects shipped', 'stat.reply': 'to get a reply',
     'about.title': 'about me',
-    'about.p1': 'I started self-taught, taking apart other people\'s plugins and reading docs late into the night. Today my code runs on roleplay, prison and community servers with real players, every day.',
-    'about.p2': 'I work in Java, only on the Minecraft ecosystem: Paper and Velocity plugins, Fabric and Forge mods, modular cores with async databases and caching. I also take care of what surrounds it: builds, VPS deploys and maintenance.',
-    'about.p3': 'I like small, reliable systems: few pieces, each with a clear job, that don\'t break when two hundred players show up at once.',
+    'about.p1': "I started in 2022. At first a guy who already wrote plugins was guiding me; the rest I learned from YouTube videos and by testing everything on my own test server.",
+    'about.p2': "The first plugin I finished was my own homemade Essentials: /gmc, /gms, /fly, /heal, /tp. Nothing special, but it worked and I wrote it. Then came the first jobs for friends' servers, and from there bigger and bigger systems: kits, economies, up to the full core of a prison server.",
+    'about.p3': "Today I mostly work with roleplay servers: modular cores, custom plugins and Fabric and Forge mods. The best result is a full server where nobody notices my code, because it just works.",
     'about.l1': 'focus', 'about.l2': 'reply', 'about.l2v': 'within 24h', 'about.l3': 'languages',
     'work.title': 'what I do',
     'work.sub': 'I work for private servers and clients, so you won\'t find names here: you\'ll find what I can build for yours.',
@@ -80,17 +74,27 @@
     'w4.d': 'Server lagging and you don\'t know why? I measure it with a profiler, find what\'s heavy and fix it: queries moved off the main thread, caching, lighter ticks.',
     'w4.a': 'Lag breakdown by plugin and by method', 'w4.b': 'Rewrites of the parts that actually matter', 'w4.c': 'A clear report of what changed',
     'stack.title': 'stack', 'stack.sub': 'The tools I use every day, from the code to the running server.',
-    'st.java': 'plugins &amp; mods', 'st.paper': 'server &amp; proxy', 'st.mod': 'mixin, GeckoLib', 'st.db': 'persistent data',
-    'st.cache': 'cache &amp; sync', 'st.build': 'build &amp; release', 'st.integ': 'integrations', 'st.ops': 'VPS &amp; deploy',
+    'st.java': "plugins &amp; mods", 'st.paper': 'server &amp; proxy', 'st.mod': 'mixin, GeckoLib', 'st.db': "database",
+    'st.cache': 'cache &amp; sync', 'st.build': "build", 'st.integ': 'integrations', 'st.ops': "VPS &amp; deploy",
     'path.title': 'journey',
-    'tl.1w': 'today', 'tl.1t': 'Freelance developer', 'tl.1d': 'Cores, plugins and mods for roleplay servers and communities. Projects followed from idea to deploy, with ongoing maintenance.',
-    'tl.2w': 'then', 'tl.2t': 'Complete mods', 'tl.2d': 'Beyond plugins: Fabric and Forge mods with mixins, client-server networking and animated entities.',
-    'tl.3w': 'next', 'tl.3t': 'Modular cores and suites', 'tl.3d': 'From single plugins to ecosystems that talk to each other, with shared databases and internal APIs.',
-    'tl.4w': 'start', 'tl.4t': 'First plugin in production', 'tl.4d': 'From self-taught to my first plugin on a real server with real players. That changed everything.',
+    'tl.1w': 'today', 'tl.1t': "Freelance for roleplay servers", 'tl.1d': "Modular cores, custom plugins and mods. I follow the work all the way to the VPS deploy and maintain it afterwards.",
+    'tl.2w': 'then', 'tl.2t': "The first mods", 'tl.2d': "I move to Fabric and Forge too: mixins, client-server packets, animated entities. A different world from plugins.",
+    'tl.3w': 'next', 'tl.3t': "The first real core", 'tl.3d': "The core of a prison server: multiple currencies, rankup and prestige. First time with MySQL and async queries, and first time lag became my problem.",
+    'tl.4w': 'start', 'tl.4t': "Jobs for other servers", 'tl.4d': "Kits, scoreboards, commands and small systems for friends' servers. This is where I learned to read logs and not crash anything.",
     'contact.title': 'contact',
     'contact.big': 'Got an idea for your server?<br><span class="red">Let\'s talk.</span>',
     'contact.sub': 'Tell me what you need, rough timing and budget. I usually reply the same day.',
     'contact.copy': 'copy',
+    'tl.5t': "The first plugins",
+    'tl.5d': "Guided by a guy and lots of YouTube videos. The first plugin replaced Essentials: /gmc, /gms, /fly, /heal.",
+    'st.kotlin': "plugins &amp; apps",
+    'st.redis': "cache &amp; sync",
+    'st.lua': "scripting",
+    'st.db2': "local data",
+    'st.maven': "build",
+    'st.git': "versioning",
+    'st.github': "repos &amp; CI",
+    'st.ide': "editor",
     'foot': 'handwritten, no framework', 'foot.top': 'back to top ↑'
   };
 
@@ -270,12 +274,7 @@
     burger.setAttribute('aria-expanded', 'false');
   }));
 
-  const bar = $('.progress');
-  const onScroll = () => {
-    nav.classList.toggle('scrolled', scrollY > 12);
-    const max = document.documentElement.scrollHeight - innerHeight;
-    bar.style.setProperty('--p', max > 0 ? (scrollY / max).toFixed(4) : 0);
-  };
+  const onScroll = () => nav.classList.toggle('scrolled', scrollY > 12);
   addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
@@ -339,7 +338,7 @@
     const ci = s.indexOf('//');
     const code = ci >= 0 ? s.slice(0, ci) : s;
     const tail = ci >= 0 ? `<span class="c">${esc(s.slice(ci))}</span>` : '';
-    return esc(code).replace(/("[^"]*")|(@\w+|\b(?:package|import|public|private|final|class|extends|new|return|void|double|int|for|if)\b)/g,
+    return esc(code).replace(/("[^"]*")|(@\w+|\b(?:package|import|public|private|final|class|extends|new|return|void|double|int|boolean|true|for|if)\b)/g,
       (m, str) => `<span class="${str ? 's' : 'k'}">${m}</span>`) + tail;
   };
   const bg = $('#bg-code');

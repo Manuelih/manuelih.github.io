@@ -36,8 +36,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 .bg { position: absolute; top: 0; left: 0; right: 0; height: 1200px; z-index: -1; pointer-events: none; overflow: hidden; }
 .bg-code {
-  position: absolute; inset: 0; margin: 0; padding: 24px 0 0 max(24px, calc((100vw - var(--max)) / 2 + 24px));
-  font-family: var(--mono); font-size: 13px; line-height: 22px; white-space: pre; color: rgba(255,255,255,.075);
+  position: absolute; inset: 0; margin: 0; padding: 96px 0 0 max(24px, calc((100vw - var(--max)) / 2 + 24px));
+  font-family: var(--mono); font-size: 13px; line-height: 22px; white-space: pre; color: rgba(255,255,255,.1);
   -webkit-mask-image: radial-gradient(ellipse 85% 70% at 50% 0%, #000 25%, transparent 78%);
   mask-image: radial-gradient(ellipse 85% 70% at 50% 0%, #000 25%, transparent 78%);
   user-select: none;
@@ -341,7 +341,6 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
 @keyframes termIn { from { opacity: 0; transform: translateX(-4px); } }
 @keyframes scan { from { background-position: -60% 0; } to { background-position: 160% 0; } }
 
-.progress { position: fixed; top: 0; left: 0; height: 2px; width: 100%; z-index: 100; transform-origin: 0 50%; transform: scaleX(var(--p, 0)); background: linear-gradient(90deg, #9e1a1d, var(--red), var(--red-2)); box-shadow: 0 0 12px var(--red-glow); pointer-events: none; }
 .bg-code.hot {
   color: rgba(255,255,255,.32);
   -webkit-mask-image: radial-gradient(circle 190px at var(--hx, -999px) var(--hy, -999px), #000, transparent 75%);
@@ -393,3 +392,11 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
   .svc h3 { font-size: 23px; }
   .svc-num { font-size: 44px; }
 }
+
+.stack { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.stack-item { align-items: flex-start; gap: 6px; padding: 22px 18px; }
+.stack-item img { width: 44px; height: 44px; margin-bottom: 8px; border-radius: 11px; transition: transform .3s; }
+.stack-item:hover img { transform: translateY(-3px) rotate(-4deg); }
+.stack-item .tk { font-size: 16px; }
+@media (max-width: 960px) { .stack { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .stack { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

@@ -13,10 +13,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=6">
+<link rel="stylesheet" href="styles.css?v=7">
 </head>
 <body>
-<div class="progress" aria-hidden="true"></div>
 
 <div class="bg" aria-hidden="true"><pre class="bg-code" id="bg-code"></pre><pre class="bg-code hot" id="bg-hot"></pre><div class="bg-glow"></div></div>
 
@@ -64,7 +63,7 @@
         </div>
       </div>
       <div class="stats">
-        <div><strong data-count="2" data-suffix="+">2+</strong><span data-i18n="stat.years">anni di codice</span></div>
+        <div><strong data-count="4" data-suffix="+">4+</strong><span data-i18n="stat.years">anni di codice</span></div>
         <div><strong data-count="40" data-suffix="+">40+</strong><span data-i18n="stat.projects">progetti consegnati</span></div>
         <div><strong data-count="24" data-suffix="h">24h</strong><span data-i18n="stat.reply">per una risposta</span></div>
       </div>
@@ -82,9 +81,9 @@
     <header class="sec-head"><span class="sec-num">01</span><h2 data-i18n="about.title">chi sono</h2><span class="sec-line"></span></header>
     <div class="about">
       <div class="about-text">
-        <p data-i18n="about.p1">Ho iniziato da autodidatta smontando plugin altrui e leggendo documentazione fino a tardi. Oggi il mio codice gira su server roleplay, prison e community con giocatori veri, ogni giorno.</p>
-        <p data-i18n="about.p2">Lavoro in Java, solo sull'ecosistema Minecraft: plugin Paper e Velocity, mod Fabric e Forge, core a moduli con database asincroni e cache. Seguo anche quello che c'è intorno: build, deploy sulla VPS e manutenzione.</p>
-        <p data-i18n="about.p3">Mi piacciono i sistemi piccoli e affidabili: pochi pezzi, ognuno con un compito chiaro, che non si rompono quando arrivano duecento giocatori insieme.</p>
+        <p data-i18n="about.p1">Ho iniziato nel 2022. All'inizio mi seguiva un ragazzo che i plugin li scriveva già, il resto l'ho imparato da video su YouTube e provando tutto sul mio server di test.</p>
+        <p data-i18n="about.p2">Il primo plugin che ho finito era un mio Essentials fatto in casa: /gmc, /gms, /fly, /heal, /tp. Niente di che, ma funzionava e l'avevo scritto io. Poi sono arrivati i primi lavori per server di amici, e da lì sistemi sempre più grandi: kit, economie, fino al core completo di un server prison.</p>
+        <p data-i18n="about.p3">Oggi lavoro soprattutto con server roleplay: core a moduli, plugin su misura e mod Fabric e Forge. Il lavoro migliore è quando il server è pieno e nessuno si accorge del mio codice, perché semplicemente va.</p>
       </div>
       <aside class="about-card">
         <figure class="shot">
@@ -159,24 +158,29 @@
     <header class="sec-head"><span class="sec-num">03</span><h2 data-i18n="stack.title">stack</h2><span class="sec-line"></span></header>
     <p class="sec-sub" data-i18n="stack.sub">Gli strumenti che uso ogni giorno, dal codice al server acceso.</p>
     <div class="stack">
-      <div class="stack-item"><span class="tk">Java 21</span><span data-i18n="st.java">plugin &amp; mod</span></div>
-      <div class="stack-item"><span class="tk">Paper / Velocity</span><span data-i18n="st.paper">server &amp; proxy</span></div>
-      <div class="stack-item"><span class="tk">Fabric / Forge</span><span data-i18n="st.mod">mixin, GeckoLib</span></div>
-      <div class="stack-item"><span class="tk">MySQL / MariaDB</span><span data-i18n="st.db">dati persistenti</span></div>
-      <div class="stack-item"><span class="tk">Redis / Caffeine</span><span data-i18n="st.cache">cache &amp; sync</span></div>
-      <div class="stack-item"><span class="tk">Gradle / Maven</span><span data-i18n="st.build">build &amp; release</span></div>
-      <div class="stack-item"><span class="tk">WorldGuard / LuckPerms</span><span data-i18n="st.integ">integrazioni</span></div>
-      <div class="stack-item"><span class="tk">Linux / Git</span><span data-i18n="st.ops">VPS &amp; deploy</span></div>
+      <div class="stack-item"><img src="img/stack/java.svg" alt="" width="48" height="48" loading="lazy"><span class="tk">Java</span><span data-i18n="st.java">plugin &amp; mod</span></div>
+      <div class="stack-item"><img src="img/stack/kotlin.svg" alt="" width="48" height="48" loading="lazy"><span class="tk">Kotlin</span><span data-i18n="st.kotlin">plugin &amp; app</span></div>
+      <div class="stack-item"><img src="img/stack/redis.svg" alt="" width="48" height="48" loading="lazy"><span class="tk">Redis</span><span data-i18n="st.redis">cache &amp; sync</span></div>
+      <div class="stack-item"><img src="img/stack/lua.svg" alt="" width="48" height="48" loading="lazy"><span class="tk">Lua</span><span data-i18n="st.lua">script</span></div>
+      <div class="stack-item"><img src="img/stack/mysql.svg" alt="" width="48" height="48" loading="lazy"><span class="tk">MySQL</span><span data-i18n="st.db">database</span></div>
+      <div class="stack-item"><img src="img/stack/sqlite.svg" alt="" width="48" height="48" loading="lazy"><span class="tk">SQLite</span><span data-i18n="st.db2">dati locali</span></div>
+      <div class="stack-item"><img src="img/stack/gradle.svg" alt="" width="48" height="48" loading="lazy"><span class="tk">Gradle</span><span data-i18n="st.build">build</span></div>
+      <div class="stack-item"><img src="img/stack/maven.svg" alt="" width="48" height="48" loading="lazy"><span class="tk">Maven</span><span data-i18n="st.maven">build</span></div>
+      <div class="stack-item"><img src="img/stack/git.svg" alt="" width="48" height="48" loading="lazy"><span class="tk">Git</span><span data-i18n="st.git">versioni</span></div>
+      <div class="stack-item"><img src="img/stack/github.svg" alt="" width="48" height="48" loading="lazy"><span class="tk">GitHub</span><span data-i18n="st.github">repository &amp; CI</span></div>
+      <div class="stack-item"><img src="img/stack/linux.svg" alt="" width="48" height="48" loading="lazy"><span class="tk">Linux</span><span data-i18n="st.ops">VPS &amp; deploy</span></div>
+      <div class="stack-item"><img src="img/stack/idea.svg" alt="" width="48" height="48" loading="lazy"><span class="tk">IntelliJ</span><span data-i18n="st.ide">editor</span></div>
     </div>
   </section>
 
   <section class="section" id="path">
     <header class="sec-head"><span class="sec-num">04</span><h2 data-i18n="path.title">percorso</h2><span class="sec-line"></span></header>
     <ol class="timeline">
-      <li><span class="tl-when" data-i18n="tl.1w">oggi</span><div><h3 data-i18n="tl.1t">Sviluppatore freelance</h3><p data-i18n="tl.1d">Core, plugin e mod per server roleplay e community. Progetti seguiti dall'idea al deploy, con manutenzione continua.</p><div class="tags"><span>Java 21</span><span>Paper</span><span>Fabric</span><span>Linux</span></div></div></li>
-      <li><span class="tl-when" data-i18n="tl.2w">dopo</span><div><h3 data-i18n="tl.2t">Mod complete</h3><p data-i18n="tl.2d">Oltre i plugin: mod Fabric e Forge con mixin, networking client-server ed entità animate.</p><div class="tags"><span>Fabric</span><span>Forge</span><span>Mixin</span></div></div></li>
-      <li><span class="tl-when" data-i18n="tl.3w">poi</span><div><h3 data-i18n="tl.3t">Core e suite modulari</h3><p data-i18n="tl.3d">Da plugin singoli a ecosistemi che si parlano, con database condivisi e API interne.</p><div class="tags"><span>MySQL</span><span>HikariCP</span><span>Velocity</span></div></div></li>
-      <li><span class="tl-when" data-i18n="tl.4w">inizio</span><div><h3 data-i18n="tl.4t">Primo plugin in produzione</h3><p data-i18n="tl.4d">Da autodidatta al primo plugin su un server vero con giocatori veri. Da lì cambia tutto.</p><div class="tags"><span>Spigot</span><span>Java</span></div></div></li>
+      <li><span class="tl-when" data-i18n="tl.1w">oggi</span><div><h3 data-i18n="tl.1t">Freelance per server roleplay</h3><p data-i18n="tl.1d">Core a moduli, plugin su misura e mod. Seguo il lavoro fino al deploy sulla VPS e lo mantengo dopo.</p><div class="tags"><span>Java 21</span><span>Paper</span><span>Redis</span><span>Linux</span></div></div></li>
+      <li><span class="tl-when">2025</span><div><h3 data-i18n="tl.2t">Le prime mod</h3><p data-i18n="tl.2d">Passo anche a Fabric e Forge: mixin, pacchetti tra client e server, entità animate. Un altro mondo rispetto ai plugin.</p><div class="tags"><span>Fabric</span><span>Forge</span><span>Mixin</span></div></div></li>
+      <li><span class="tl-when">2024</span><div><h3 data-i18n="tl.3t">Il primo core vero</h3><p data-i18n="tl.3d">Il core di un server prison: più valute, rankup e prestige. Prima volta con MySQL e query asincrone, e prima volta che il lag diventava un problema mio.</p><div class="tags"><span>MySQL</span><span>HikariCP</span><span>Paper</span></div></div></li>
+      <li><span class="tl-when">2023</span><div><h3 data-i18n="tl.4t">Lavori per altri server</h3><p data-i18n="tl.4d">Kit, scoreboard, comandi e piccoli sistemi per server di amici e conoscenti. Qui ho imparato a leggere i log e a non far crashare niente.</p><div class="tags"><span>Spigot</span><span>YAML</span></div></div></li>
+      <li><span class="tl-when">2022</span><div><h3 data-i18n="tl.5t">I primi plugin</h3><p data-i18n="tl.5d">Seguito da un ragazzo e con tanti video su YouTube. Il primo plugin sostituiva Essentials: /gmc, /gms, /fly, /heal.</p><div class="tags"><span>Spigot</span><span>Java</span></div></div></li>
     </ol>
   </section>
 
@@ -202,6 +206,6 @@
   <a href="#top" data-i18n="foot.top">torna su ↑</a>
 </footer>
 
-<script src="app.js?v=6"></script>
+<script src="app.js?v=7"></script>
 </body>
 </html>
