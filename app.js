@@ -77,7 +77,7 @@
     'st.java': "plugins &amp; mods", 'st.paper': 'server &amp; proxy', 'st.mod': 'mixin, GeckoLib', 'st.db': "database",
     'st.cache': 'cache &amp; sync', 'st.build': "build", 'st.integ': 'integrations', 'st.ops': "VPS &amp; deploy",
     'path.title': 'journey',
-    'tl.1w': 'today', 'tl.1t': "Freelance for roleplay servers", 'tl.1d': "Modular cores, custom plugins and mods. I follow the work all the way to the VPS deploy and maintain it afterwards.",
+    'tl.1w': 'today', 'tl.1t': "Developer at AtlantisRP", 'tl.1d': "Building for AtlantisRP, an Italian roleplay set in the Canaries. Alongside it I take freelance work: modular cores, custom plugins and mods.",
     'tl.2w': 'then', 'tl.2t': "The first mods", 'tl.2d': "I move to Fabric and Forge too: mixins, client-server packets, animated entities. A different world from plugins.",
     'tl.3w': 'next', 'tl.3t': "The first real core", 'tl.3d': "The core of a prison server: multiple currencies, rankup and prestige. First time with MySQL and async queries, and first time lag became my problem.",
     'tl.4w': 'start', 'tl.4t': "Jobs for other servers", 'tl.4d': "Kits, scoreboards, commands and small systems for friends' servers. This is where I learned to read logs and not crash anything.",
@@ -95,6 +95,12 @@
     'st.git': "versioning",
     'st.github': "repos &amp; CI",
     'st.ide': "editor",
+    'nav.now': "now",
+    'now.title': "now",
+    'now.role': "Developer · current",
+    'now.d1': "I work as a developer at AtlantisRP, an Italian Minecraft roleplay server set in the Canary Islands.",
+    'now.d2': "I'm part of the team building the server: I write modules and gameplay systems, test them and ship them to a community that's active every day.",
+    'now.cap': "official AtlantisRP trailer",
     'foot': 'handwritten, no framework', 'foot.top': 'back to top ↑'
   };
 
@@ -374,6 +380,15 @@
     label.classList.add('done');
     setTimeout(() => { label.textContent = lang === 'en' ? EN['contact.copy'] : IT['contact.copy']; label.classList.remove('done'); }, 1600);
   }));
+
+  const nowBox = $('.now-video');
+  if (nowBox) {
+    const vid = $('video', nowBox);
+    const start = () => { nowBox.classList.add('playing'); vid.controls = true; vid.play().catch(() => {}); };
+    $('.now-play', nowBox).addEventListener('click', start);
+    vid.addEventListener('play', () => nowBox.classList.add('playing'));
+    vid.addEventListener('ended', () => nowBox.classList.remove('playing'));
+  }
 
   $('#year').textContent = new Date().getFullYear();
   setLang(lang);

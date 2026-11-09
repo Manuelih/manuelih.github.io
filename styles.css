@@ -400,3 +400,25 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
 .stack-item .tk { font-size: 16px; }
 @media (max-width: 960px) { .stack { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 @media (max-width: 560px) { .stack { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.now { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 40px; align-items: center; margin-top: 30px; }
+.now-brand { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; }
+.now-brand img { width: 72px; height: 72px; border-radius: 18px; object-fit: cover; border: 1px solid var(--line-2); box-shadow: 0 12px 30px -12px rgba(255, 196, 0, .35); }
+.now-brand strong { display: block; font-size: 28px; font-weight: 700; letter-spacing: -.03em; line-height: 1.1; }
+.now-role { display: inline-flex; align-items: center; gap: 8px; margin-top: 6px; font-family: var(--mono); font-size: 12px; color: var(--dim); }
+.now-info p { margin: 0 0 14px; color: var(--dim); font-size: 16.5px; }
+.now-info p:first-of-type { color: var(--text); font-size: 18px; }
+.now-info .btn { margin-top: 10px; }
+.now-video { position: relative; margin: 0; border-radius: 16px; overflow: hidden; border: 1px solid var(--line-2); background: #000; aspect-ratio: 1920 / 802; box-shadow: 0 40px 80px -40px rgba(0,0,0,.9), 0 0 0 1px rgba(255,59,63,.06); }
+.now-video video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.now-play {
+  position: absolute; inset: 0; margin: auto; width: 76px; height: 76px; border-radius: 50%;
+  display: grid; place-items: center; background: var(--red); box-shadow: 0 0 0 10px rgba(255,59,63,.18), 0 16px 40px -10px var(--red-glow);
+  transition: transform .25s, box-shadow .25s;
+}
+.now-play svg { width: 30px; height: 30px; fill: #fff; margin-left: 4px; }
+.now-play:hover { transform: scale(1.08); box-shadow: 0 0 0 16px rgba(255,59,63,.14), 0 16px 40px -10px var(--red-glow); }
+.now-video.playing .now-play, .now-video.playing figcaption { opacity: 0; pointer-events: none; }
+.now-video figcaption { position: absolute; left: 16px; bottom: 14px; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: rgba(255,255,255,.8); text-shadow: 0 1px 6px rgba(0,0,0,.8); transition: opacity .2s; pointer-events: none; }
+@media (max-width: 960px) { .now { grid-template-columns: minmax(0, 1fr); gap: 28px; } }
+@media (max-width: 560px) { .now-play { width: 60px; height: 60px; } .now-brand strong { font-size: 24px; } }

@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=7">
+<link rel="stylesheet" href="styles.css?v=8">
 </head>
 <body>
 
@@ -23,10 +23,11 @@
   <a href="#top" class="brand"><span class="brand-caret">~/</span>mqnuu<span class="cursor">_</span></a>
   <nav class="nav-links" aria-label="Sezioni">
     <a href="#about"><span>01</span><b data-i18n="nav.about">chi sono</b></a>
-    <a href="#work"><span>02</span><b data-i18n="nav.work">cosa faccio</b></a>
-    <a href="#stack"><span>03</span><b data-i18n="nav.stack">stack</b></a>
-    <a href="#path"><span>04</span><b data-i18n="nav.path">percorso</b></a>
-    <a href="#contact"><span>05</span><b data-i18n="nav.contact">contatti</b></a>
+    <a href="#now"><span>02</span><b data-i18n="nav.now">adesso</b></a>
+    <a href="#work"><span>03</span><b data-i18n="nav.work">cosa faccio</b></a>
+    <a href="#stack"><span>04</span><b data-i18n="nav.stack">stack</b></a>
+    <a href="#path"><span>05</span><b data-i18n="nav.path">percorso</b></a>
+    <a href="#contact"><span>06</span><b data-i18n="nav.contact">contatti</b></a>
   </nav>
   <div class="nav-right">
     <button class="lang" type="button" aria-label="Cambia lingua"><span data-l="it">IT</span><i>/</i><span data-l="en">EN</span></button>
@@ -103,8 +104,31 @@
     </div>
   </section>
 
+  <section class="section" id="now">
+    <header class="sec-head"><span class="sec-num">02</span><h2 data-i18n="now.title">adesso</h2><span class="sec-line"></span></header>
+    <div class="now">
+      <div class="now-info">
+        <div class="now-brand">
+          <img src="img/atlantis/logo.jpg" alt="AtlantisRP" width="72" height="72">
+          <div>
+            <strong>AtlantisRP</strong>
+            <span class="now-role"><span class="pulse"></span><span data-i18n="now.role">Developer · attuale</span></span>
+          </div>
+        </div>
+        <p data-i18n="now.d1">Lavoro come developer su AtlantisRP, un roleplay italiano su Minecraft ambientato alle Isole Canarie.</p>
+        <p data-i18n="now.d2">Faccio parte del team che sviluppa il server: scrivo moduli e sistemi di gameplay, li testo e li porto in produzione su una community attiva ogni giorno.</p>
+        <a class="btn btn-line" href="https://atlantisrp.it/" target="_blank" rel="noopener">atlantisrp.it <span aria-hidden="true">↗</span></a>
+      </div>
+      <figure class="now-video">
+        <video src="img/atlantis/trailer.mp4" poster="img/atlantis/poster.webp" preload="none" playsinline></video>
+        <button class="now-play" type="button" aria-label="Guarda il trailer"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+        <figcaption data-i18n="now.cap">trailer ufficiale di AtlantisRP</figcaption>
+      </figure>
+    </div>
+  </section>
+
   <section class="section" id="work">
-    <header class="sec-head"><span class="sec-num">02</span><h2 data-i18n="work.title">cosa faccio</h2><span class="sec-line"></span></header>
+    <header class="sec-head"><span class="sec-num">03</span><h2 data-i18n="work.title">cosa faccio</h2><span class="sec-line"></span></header>
     <p class="sec-sub" data-i18n="work.sub">Lavoro per server e clienti privati, quindi qui non trovi nomi: trovi cosa posso costruire per il tuo.</p>
     <div class="work">
       <article class="svc">
@@ -155,7 +179,7 @@
   </section>
 
   <section class="section" id="stack">
-    <header class="sec-head"><span class="sec-num">03</span><h2 data-i18n="stack.title">stack</h2><span class="sec-line"></span></header>
+    <header class="sec-head"><span class="sec-num">04</span><h2 data-i18n="stack.title">stack</h2><span class="sec-line"></span></header>
     <p class="sec-sub" data-i18n="stack.sub">Gli strumenti che uso ogni giorno, dal codice al server acceso.</p>
     <div class="stack">
       <div class="stack-item"><img src="img/stack/java.svg" alt="" width="48" height="48" loading="lazy"><span class="tk">Java</span><span data-i18n="st.java">plugin &amp; mod</span></div>
@@ -174,9 +198,9 @@
   </section>
 
   <section class="section" id="path">
-    <header class="sec-head"><span class="sec-num">04</span><h2 data-i18n="path.title">percorso</h2><span class="sec-line"></span></header>
+    <header class="sec-head"><span class="sec-num">05</span><h2 data-i18n="path.title">percorso</h2><span class="sec-line"></span></header>
     <ol class="timeline">
-      <li><span class="tl-when" data-i18n="tl.1w">oggi</span><div><h3 data-i18n="tl.1t">Freelance per server roleplay</h3><p data-i18n="tl.1d">Core a moduli, plugin su misura e mod. Seguo il lavoro fino al deploy sulla VPS e lo mantengo dopo.</p><div class="tags"><span>Java 21</span><span>Paper</span><span>Redis</span><span>Linux</span></div></div></li>
+      <li><span class="tl-when" data-i18n="tl.1w">oggi</span><div><h3 data-i18n="tl.1t">Developer su AtlantisRP</h3><p data-i18n="tl.1d">Sviluppo per AtlantisRP, roleplay italiano ambientato alle Canarie. In parallelo prendo lavori freelance: core a moduli, plugin su misura e mod.</p><div class="tags"><span>Java 21</span><span>Paper</span><span>Redis</span><span>Linux</span></div></div></li>
       <li><span class="tl-when">2025</span><div><h3 data-i18n="tl.2t">Le prime mod</h3><p data-i18n="tl.2d">Passo anche a Fabric e Forge: mixin, pacchetti tra client e server, entità animate. Un altro mondo rispetto ai plugin.</p><div class="tags"><span>Fabric</span><span>Forge</span><span>Mixin</span></div></div></li>
       <li><span class="tl-when">2024</span><div><h3 data-i18n="tl.3t">Il primo core vero</h3><p data-i18n="tl.3d">Il core di un server prison: più valute, rankup e prestige. Prima volta con MySQL e query asincrone, e prima volta che il lag diventava un problema mio.</p><div class="tags"><span>MySQL</span><span>HikariCP</span><span>Paper</span></div></div></li>
       <li><span class="tl-when">2023</span><div><h3 data-i18n="tl.4t">Lavori per altri server</h3><p data-i18n="tl.4d">Kit, scoreboard, comandi e piccoli sistemi per server di amici e conoscenti. Qui ho imparato a leggere i log e a non far crashare niente.</p><div class="tags"><span>Spigot</span><span>YAML</span></div></div></li>
@@ -185,7 +209,7 @@
   </section>
 
   <section class="section" id="contact">
-    <header class="sec-head"><span class="sec-num">05</span><h2 data-i18n="contact.title">contatti</h2><span class="sec-line"></span></header>
+    <header class="sec-head"><span class="sec-num">06</span><h2 data-i18n="contact.title">contatti</h2><span class="sec-line"></span></header>
     <div class="contact">
       <div>
         <p class="contact-big" data-i18n="contact.big">Hai un'idea per il tuo server?<br><span class="red">Parliamone.</span></p>
@@ -206,6 +230,6 @@
   <a href="#top" data-i18n="foot.top">torna su ↑</a>
 </footer>
 
-<script src="app.js?v=7"></script>
+<script src="app.js?v=8"></script>
 </body>
 </html>
