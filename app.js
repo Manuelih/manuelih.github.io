@@ -289,6 +289,107 @@
     store.set('lang', l);
     renderCards();
     restartTyping();
+    runTerminal();
+  }
+
+  const P = '<span class="c-red">$</span> ';
+  const kv = (k, v) => `<span class="c-key">${k}:</span> ${v}`;
+  const SCRIPTS = l => {
+    const it = l !== 'en';
+    return [
+      [
+        { c: 'whoami' },
+        { o: '<span class="c-dim">emanuele <span class="c-red">aka</span> mqnuu</span>' },
+        { c: 'cat profile.yml' },
+        { o: kv('role', it ? 'sviluppatore full-stack' : 'full-stack developer') },
+        { o: kv('main', 'Java 21 · Paper · Velocity') },
+        { o: kv('also', 'Fabric · Forge · Discord · Web') },
+        { o: kv('based', it ? 'Italia' : 'Italy') }
+      ],
+      [
+        { c: './gradlew shadowJar' },
+        { o: '<span class="c-dim">&gt; Task :compileJava</span>', d: 520 },
+        { o: '<span class="c-dim">&gt; Task :shadowJar</span>', d: 680 },
+        { o: '<span class="c-ok">BUILD SUCCESSFUL</span> <span class="c-dim">in 4s</span>', d: 420 },
+        { c: 'scp build/libs/Radice.jar vps:plugins/' },
+        { o: '<span class="c-dim">Radice.jar</span>  <span class="bar" style="--w:100%"></span> 100%', d: 300, bar: true },
+        { o: `<span class="c-ok">✓</span> ${it ? 'deploy fatto, riavvio non necessario' : 'deployed, no restart needed'}`, d: 450 }
+      ],
+      [
+        { c: '/vk tps' },
+        { o: kv('tps', '20.0 · 20.0 · 20.0') },
+        { o: kv('mspt', '11.8 ms') },
+        { c: '/vk profiler start --timeout 60' },
+        { o: `<span class="c-dim">› ${it ? 'profiler avviato, report tra 60s' : 'profiler started, report in 60s'}</span>`, d: 300 },
+        { o: `<span class="c-ok">✓</span> ${it ? 'report pronto' : 'report ready'}: <span class="c-key">VK-7f3a91c2</span>`, d: 1600 }
+      ]
+    ];
+  };
+
+  let termRun = 0;
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  async function runTerminal() {
+    const box = $('#term');
+    if (!box) return;
+    const id = ++termRun;
+    const scripts = SCRIPTS(lang);
+    const line = html => { const p = document.createElement('p'); p.innerHTML = html; box.appendChild(p); return p; };
+    const prompt = () => line(P + '<span class="t"></span><span class="blink">▍</span>');
+    if (reduce) {
+      box.innerHTML = '';
+      scripts[0].forEach(s => line(s.c ? P + s.c : s.o));
+      prompt();
+      return;
+    }
+    for (let n = 0; ; n = (n + 1) % scripts.length) {
+      box.innerHTML = '';
+      let cur = prompt();
+      await sleep(n === 0 ? 500 : 700);
+      for (const s of scripts[n]) {
+        if (id !== termRun) return;
+        if (s.c) {
+          if (!cur) { cur = prompt(); await sleep(350); }
+          const t = $('.t', cur);
+          for (const ch of s.c) {
+            if (id !== termRun) return;
+            t.textContent += ch;
+            await sleep(38 + Math.random() * 70);
+          }
+          await sleep(260);
+          $('.blink', cur).remove();
+          cur = null;
+        } else {
+          await sleep(s.d || 110);
+          if (id !== termRun) return;
+          const p = line(s.o);
+          p.classList.add('in');
+          if (s.bar) requestAnimationFrame(() => p.classList.add('go'));
+        }
+      }
+      prompt();
+      await sleep(3800);
+      if (id !== termRun) return;
+    }
+  }
+
+  function countUp(el) {
+    const end = +el.dataset.count, suf = el.dataset.suffix || '';
+    if (reduce) { el.textContent = end + suf; return; }
+    const t0 = performance.now(), dur = 1400;
+    const f = now => {
+      const k = Math.min(1, (now - t0) / dur);
+      el.textContent = Math.round(end * (1 - Math.pow(1 - k, 3))) + suf;
+      if (k < 1) requestAnimationFrame(f);
+    };
+    requestAnimationFrame(f);
+  }
+  const counters = $$('[data-count]');
+  if ('IntersectionObserver' in window) {
+    counters.forEach(c => { c.textContent = '0' + (c.dataset.suffix || ''); });
+    const co = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { countUp(e.target); co.unobserve(e.target); }
+    }), { threshold: .6 });
+    counters.forEach(c => co.observe(c));
   }
 
   let typeTimer = null;

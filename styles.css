@@ -343,3 +343,19 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
   .reveal { opacity: 1; transform: none; }
 }
 .arrow.done { color: #3ddc84 !important; }
+
+.term-body { min-height: 238px; }
+.term-body p.in { animation: termIn .25s ease-out; }
+.c-ok { color: #3ddc84; }
+.bar { display: inline-block; vertical-align: middle; width: 90px; height: 6px; margin: 0 8px 2px; border-radius: 3px; background: rgba(255,255,255,.08); position: relative; overflow: hidden; }
+.bar::after { content: ""; position: absolute; inset: 0; width: 0; background: var(--red); border-radius: 3px; transition: width .9s ease-out; }
+.go .bar::after { width: var(--w); }
+.term { position: relative; }
+.term::after {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px; pointer-events: none;
+  background: linear-gradient(90deg, transparent, var(--red), transparent);
+  background-size: 40% 100%; background-repeat: no-repeat; animation: scan 4s linear infinite; opacity: .8;
+}
+.stats strong { font-variant-numeric: tabular-nums; }
+@keyframes termIn { from { opacity: 0; transform: translateX(-4px); } }
+@keyframes scan { from { background-position: -60% 0; } to { background-position: 160% 0; } }

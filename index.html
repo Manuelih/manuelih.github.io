@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=3">
+<link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
 
@@ -51,7 +51,7 @@
     <div class="hero-side">
       <div class="term">
         <div class="term-bar"><i></i><i></i><i></i><span>mqnuu@dev: ~</span></div>
-        <div class="term-body">
+        <div class="term-body" id="term">
           <p><span class="c-red">$</span> whoami</p>
           <p class="c-dim">emanuele <span class="c-red">aka</span> mqnuu</p>
           <p><span class="c-red">$</span> cat profile.yml</p>
@@ -63,9 +63,9 @@
         </div>
       </div>
       <div class="stats">
-        <div><strong>2+</strong><span data-i18n="stat.years">anni di codice</span></div>
-        <div><strong>40+</strong><span data-i18n="stat.projects">progetti consegnati</span></div>
-        <div><strong>6</strong><span data-i18n="stat.langs">linguaggi</span></div>
+        <div><strong data-count="2" data-suffix="+">2+</strong><span data-i18n="stat.years">anni di codice</span></div>
+        <div><strong data-count="40" data-suffix="+">40+</strong><span data-i18n="stat.projects">progetti consegnati</span></div>
+        <div><strong data-count="6">6</strong><span data-i18n="stat.langs">linguaggi</span></div>
       </div>
     </div>
   </section>
@@ -168,6 +168,6 @@
   </div>
 </dialog>
 
-<script src="app.js?v=3"></script>
+<script src="app.js?v=4"></script>
 </body>
 </html>
