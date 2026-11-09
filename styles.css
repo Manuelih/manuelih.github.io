@@ -360,3 +360,36 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
 .term.tilt { transition: transform .12s ease-out; }
 .scramble { color: var(--red); }
 @media (hover: none) { .bg-code.hot { display: none; } }
+
+.work { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.svc {
+  position: relative; display: flex; flex-direction: column; gap: 14px; padding: 30px 30px 28px;
+  background: linear-gradient(180deg, var(--card-2), var(--card)); border: 1px solid var(--line); border-radius: 18px;
+  overflow: hidden; isolation: isolate; transition: border-color .3s, transform .3s;
+}
+.svc::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0; transition: opacity .3s;
+  background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 0%), rgba(255,59,63,.13), transparent 45%);
+}
+.svc::after {
+  content: ""; position: absolute; left: 30px; right: 30px; top: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--red), transparent); opacity: 0; transition: opacity .3s;
+}
+.svc:hover { border-color: rgba(255,59,63,.45); transform: translateY(-4px); }
+.svc:hover::before, .svc:hover::after { opacity: 1; }
+.svc-top { display: flex; justify-content: space-between; align-items: baseline; }
+.svc-num { font-size: 56px; font-weight: 700; line-height: 1; letter-spacing: -.05em; color: transparent; -webkit-text-stroke: 1px var(--line-2); transition: -webkit-text-stroke-color .3s, color .3s; }
+.svc:hover .svc-num { -webkit-text-stroke-color: var(--red); }
+.svc-path { font-family: var(--mono); font-size: 12px; color: var(--red); }
+.svc h3 { margin: 6px 0 0; font-size: 27px; font-weight: 600; letter-spacing: -.03em; line-height: 1.15; }
+.svc p { margin: 0; color: var(--dim); font-size: 15.5px; }
+.svc ul { list-style: none; margin: 4px 0 6px; padding: 14px 0 0; border-top: 1px dashed var(--line-2); display: flex; flex-direction: column; gap: 8px; }
+.svc li { display: grid; grid-template-columns: 18px 1fr; gap: 6px; font-size: 14.5px; color: var(--text); }
+.svc li::before { content: "›"; font-family: var(--mono); font-weight: 700; color: var(--red); }
+.svc .tags { margin-top: auto; }
+@media (max-width: 760px) {
+  .work { grid-template-columns: minmax(0, 1fr); }
+  .svc { padding: 24px 20px 22px; }
+  .svc h3 { font-size: 23px; }
+  .svc-num { font-size: 44px; }
+}

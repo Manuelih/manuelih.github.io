@@ -6,7 +6,7 @@ Pagina unica in HTML, CSS e JS vanilla, senza build e senza dipendenze oltre ai 
 
 - `index.html` — struttura e testi italiani
 - `styles.css` — stile (tema scuro, accento rosso `#ff3b3f`)
-- `app.js` — progetti, traduzione EN, filtri, schede di dettaglio, animazioni
+- `app.js` — traduzione EN, terminale animato, codice di sfondo, animazioni
 
 Per provarlo in locale:
 
