@@ -13,11 +13,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=4">
+<link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
+<div class="progress" aria-hidden="true"></div>
 
-<div class="bg" aria-hidden="true"><pre class="bg-code" id="bg-code"></pre><div class="bg-glow"></div></div>
+<div class="bg" aria-hidden="true"><pre class="bg-code" id="bg-code"></pre><pre class="bg-code hot" id="bg-hot"></pre><div class="bg-glow"></div></div>
 
 <header class="nav" id="top">
   <a href="#top" class="brand"><span class="brand-caret">~/</span>mqnuu<span class="cursor">_</span></a>
@@ -120,7 +121,7 @@
 
   <section class="section" id="projects">
     <header class="sec-head"><span class="sec-num">03</span><h2 data-i18n="projects.title">progetti</h2><span class="sec-line"></span><a class="sec-link" href="https://github.com/Manuelih" target="_blank" rel="noopener">GitHub ↗</a></header>
-    <p class="sec-sub" data-i18n="projects.sub">Quasi tutto è stato scritto per server e clienti privati, quindi il codice non è pubblico. Clicca una card per i dettagli tecnici.</p>
+    <p class="sec-sub" data-i18n="projects.sub">Tutto è stato fatto per server e clienti privati: qui trovi il tipo di lavoro, non i nomi.</p>
     <div class="filters" role="tablist">
       <button class="on" data-f="all" data-i18n="f.all">tutti</button>
       <button data-f="plugin">plugin</button>
@@ -161,13 +162,7 @@
   <a href="#top" data-i18n="foot.top">torna su ↑</a>
 </footer>
 
-<dialog class="modal" id="modal">
-  <div class="modal-inner">
-    <button class="modal-x" type="button" aria-label="Chiudi">×</button>
-    <div id="modal-body"></div>
-  </div>
-</dialog>
 
-<script src="app.js?v=4"></script>
+<script src="app.js?v=5"></script>
 </body>
 </html>

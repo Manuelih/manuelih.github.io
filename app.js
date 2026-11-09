@@ -1,148 +1,43 @@
 (() => {
   'use strict';
 
-  const META = {
-    'radice':       { f: 'plugin', kind: 'core + moduli',  tags: ['Paper 1.21.11', 'Velocity', 'Gradle', 'MariaDB', 'Redis'], wide: true },
-    'arcadia':      { f: 'plugin', kind: 'plugin suite',   tags: ['Paper', 'WorldGuard', 'SQLite'] },
-    'fuochi':       { f: 'mod',    kind: 'forge mod',      tags: ['Forge 1.19.2', 'Netty', 'NBT'] },
-    'paradis':      { f: 'mod',    kind: 'fabric mods',    tags: ['Fabric 1.21.1', 'Mixin', 'Display entity'], wide: true },
-    'coda':         { f: 'mod',    kind: 'forge mod',      tags: ['Forge 1.19.2', 'Mixin', 'Login protocol'] },
-    'spiderman':    { f: 'plugin', kind: 'plugin',         tags: ['Paper 1.21.8', 'Java 21'] },
-    'voltick':      { f: 'plugin app', kind: 'profiler',   tags: ['Java 21', 'Express', 'SQLite'], live: true },
-    'launcher':     { f: 'app',    kind: 'desktop app',    tags: ['Electron', 'React 19', 'TypeScript'] },
-    'shaders':      { f: 'mod',    kind: 'shaderpack',     tags: ['GLSL', 'Iris', 'OptiFine'] },
-    'bots':         { f: 'app',    kind: 'bot',            tags: ['discord.js v14', 'discord.py', 'Telegram'] }
-  };
-
   const PROJECTS = [
-    { id: 'radice',
-      it: { title: 'Radice — core roleplay a moduli',
-            desc: 'Il core di un roleplay italiano moderno: un plugin base e una serie di moduli separati (identità, economia, banca, chat, lobby) su una rete Velocity.',
-            intro: 'Un server roleplay cresce in fretta e un plugin unico diventa ingestibile in pochi mesi. Radice nasce per evitarlo: il core offre i servizi comuni e ogni sistema del server vive in un modulo a sé, con il suo repository e la sua versione.',
-            approach: 'I moduli estendono una classe base del core e dichiarano le dipendenze nel plugin.yml. Il core espone le API (database, cache, comandi, messaggi) come libreria pubblicata, così i moduli compilano contro un artefatto versionato. MariaDB e Redis sono facoltativi; la rete gira dietro un proxy Velocity con lobby e server roleplay separati, e ogni modulo ha la sua pipeline di build.',
-            h: ['API del core pubblicata come pacchetto: i moduli non dipendono dal codice interno', 'Un modulo di esempio fa da modello per partire in pochi minuti', 'Rete Velocity con lobby e server roleplay distinti', 'Versione aumentata e deploy a ogni modifica, mai jar vecchi sul server'] },
-      en: { title: 'Radice — modular roleplay core',
-            desc: 'The core of a modern Italian roleplay server: a base plugin plus separate modules (identity, economy, bank, chat, lobby) on a Velocity network.',
-            intro: 'A roleplay server grows fast and a single plugin becomes unmanageable within months. Radice exists to prevent that: the core provides shared services and every system lives in its own module, with its own repository and version.',
-            approach: 'Modules extend a base class from the core and declare their dependencies in plugin.yml. The core exposes its APIs (database, cache, commands, messages) as a published library, so modules compile against a versioned artifact. MariaDB and Redis are optional; the network runs behind a Velocity proxy with separate lobby and roleplay servers, and every module has its own build pipeline.',
-            h: ['Core API published as a package: modules never touch internal code', 'An example module acts as a template to start in minutes', 'Velocity network with separate lobby and roleplay servers', 'Version bump and deploy on every change, never stale jars on the server'] } },
-
-    { id: 'arcadia',
-      it: { title: 'Suite Arcadia — roleplay medievale',
-            desc: 'Più di dieci plugin per un roleplay medievale: miniere con vene che si richiudono, medici e ferite, stalliere, bussola, anagrafe e uno staffcore a GUI.',
-            intro: 'Arcadia voleva mestieri veri: il minatore, il medico, il fabbro devono servire a qualcosa, non essere decorazioni. Ogni plugin della suite crea un motivo per giocare insieme agli altri.',
-            approach: 'In miniera il client deciderebbe da solo quando un blocco si rompe, quindi il plugin governa lo scavo: fatica invisibile al giocatore e avanzamento disegnato tick per tick con il danno al blocco. I medici curano tre ferite che il cibo non chiude, con una lente diagnostica obbligatoria prima della cura. Lo staffcore ha un pannello a sigilli dove le funzioni si sbloccano col grado, con sanzioni e registri in SQLite.',
-            h: ['Scavo controllato dal server senza "ghost break" lato client', 'Vene salvate su file: dopo un crash tornano da sole', 'Ferite con causa e sintomo visibili, morire non guarisce di proposito', 'Integrazioni opzionali (Vault, PlaceholderAPI) caricate solo se presenti'] },
-      en: { title: 'Arcadia suite — medieval roleplay',
-            desc: 'Over ten plugins for a medieval roleplay: mines with veins that close up, doctors and wounds, stablemaster, compass, registry and a GUI staff core.',
-            intro: 'Arcadia wanted real professions: the miner, the doctor and the smith have to matter, not just decorate. Every plugin in the suite gives players a reason to play together.',
-            approach: 'In a mine the client would decide on its own when a block breaks, so the plugin takes over digging: fatigue hidden from the player and progress drawn tick by tick with block damage. Doctors treat three wounds that food does not heal, with a mandatory diagnostic lens before treatment. The staff core has a sealed panel where features unlock by rank, with sanctions and logs in SQLite.',
-            h: ['Server-controlled digging with no client-side ghost breaks', 'Veins saved to disk: they come back on their own after a crash', 'Wounds with visible cause and symptom, dying does not heal on purpose', 'Optional integrations (Vault, PlaceholderAPI) loaded only when present'] } },
-
-    { id: 'fuochi',
-      it: { title: 'SniperFuochi — fuochi d\'artificio disegnati',
-            desc: 'Mod Forge con un editor a pixel: disegni sulla tela, scegli colori e animazioni, e il razzo esplode in cielo con il tuo disegno.',
-            intro: 'Per gli eventi del server servivano fuochi d\'artificio con scritte e loghi, cosa che il vanilla non sa fare. La mod aggiunge un editor in gioco e un\'esplosione che ricompone il disegno in particelle.',
-            approach: 'La tela arriva fino a 160×72 pixel con una palette ricavata dalle texture vanilla. I pixel vengono compressi prima di finire nell\'NBT del razzo e nei pacchetti: un disegno da 7168 pixel occupa circa 66 byte. Il server sincronizza la config ai client e decide chi può usare l\'editor.',
-            h: ['Editor a pixel in GUI con tele di diverse misure', 'Disegni compressi: da migliaia di pixel a poche decine di byte', 'Durata, entrata e uscita dell\'animazione configurabili', 'Permessi e raggio di visibilità decisi dal server'] },
-      en: { title: 'SniperFuochi — drawn fireworks',
-            desc: 'A Forge mod with a pixel editor: draw on a canvas, pick colours and animations, and the rocket bursts in the sky with your drawing.',
-            intro: 'Server events needed fireworks with text and logos, which vanilla cannot do. The mod adds an in-game editor and an explosion that rebuilds the drawing out of particles.',
-            approach: 'The canvas goes up to 160×72 pixels with a palette taken from vanilla textures. Pixels are compressed before going into the rocket NBT and packets: a 7168-pixel drawing takes about 66 bytes. The server syncs its config to clients and decides who can use the editor.',
-            h: ['Pixel editor GUI with several canvas sizes', 'Compressed drawings: thousands of pixels in a few dozen bytes', 'Configurable duration, entry and exit animations', 'Permissions and view range decided by the server'] } },
-
-    { id: 'paradis',
-      it: { title: 'Mod Paradis — roleplay Fabric',
-            desc: 'Una serie di mod Fabric per un roleplay ispirato ad Attack on Titan: porte animate, zaini anti-dupe, spedizioni con HUD, bacheca missioni 3D.',
-            intro: 'Su un server Fabric non ci sono plugin: ogni meccanica del roleplay va scritta come mod, lato server e lato client. Ho costruito le mod che servivano al gioco di tutti i giorni.',
-            approach: 'Le porte (battenti, ponti levatoi, saracinesche) si animano con le display entity vanilla, ruotate a fotogrammi, e prenotano i blocchi di arrivo durante il movimento. Gli zaini tengono il contenuto lato server con un token che cambia a ogni apertura, così non si possono duplicare. Le spedizioni hanno una GUI per la formazione e un HUD laterale; i dati restano in uno stato persistente che sopravvive ai crash.',
-            h: ['Porte animate senza resource pack, solo display entity', 'Zaini con token rotante e controllo dei duplicati ogni 2 secondi', 'GUI client con payload validati dal server', 'Recupero automatico dopo un crash durante un\'animazione'] },
-      en: { title: 'Paradis mods — Fabric roleplay',
-            desc: 'A set of Fabric mods for an Attack on Titan inspired roleplay: animated doors, dupe-proof backpacks, expeditions with HUD, a 3D mission board.',
-            intro: 'A Fabric server has no plugins: every roleplay mechanic has to be a mod, on both server and client. I built the mods the server needed for everyday play.',
-            approach: 'Doors (swinging, drawbridges, portcullises) are animated with vanilla display entities rotated frame by frame, and reserve their target blocks while moving. Backpacks keep their contents server-side with a token that changes on every open, so they cannot be duplicated. Expeditions have a formation GUI and a side HUD; data lives in persistent state that survives crashes.',
-            h: ['Animated doors with no resource pack, just display entities', 'Backpacks with a rotating token and a duplicate scan every 2 seconds', 'Client GUIs with server-validated payloads', 'Automatic recovery after a crash mid-animation'] } },
-
-    { id: 'coda',
-      it: { title: 'CodaServer — coda a server pieno',
-            desc: 'Mod Forge che, a server pieno, mette i giocatori in fila invece di cacciarli, con posizione aggiornata in tempo reale.',
-            intro: 'Con il server pieno Forge rifiuta il giocatore e lui riprova a caso finché non entra. Serviva una vera coda, con priorità per chi ne ha diritto.',
-            approach: 'Il giocatore resta nella fase di login invece di essere rifiutato. Il server gli manda periodicamente un pacchetto personalizzato con la posizione in fila e il client risponde, così la connessione non va in timeout. Il primo della fila entra solo quando non c\'è nessuna richiesta in sospeso, altrimenti il protocollo si romperebbe al passaggio in gioco.',
-            h: ['Attesa tenuta nella fase di login, senza disconnessioni', 'Scambio periodico che tiene viva la connessione', 'Conferma obbligatoria prima di far entrare il primo della fila', 'Priorità configurabile con un comando'] },
-      en: { title: 'CodaServer — full-server queue',
-            desc: 'A Forge mod that queues players when the server is full instead of kicking them, with a live position.',
-            intro: 'When the server is full Forge rejects players and they keep retrying at random. It needed a real queue, with priority for those entitled to it.',
-            approach: 'The player stays in the login phase instead of being rejected. The server periodically sends a custom packet with the queue position and the client replies, so the connection never times out. The first in line only gets in when no request is pending, otherwise the protocol would break on the switch to play.',
-            h: ['Waiting held in the login phase, no disconnects', 'Periodic exchange that keeps the connection alive', 'Mandatory acknowledgement before letting the first player in', 'Priority configurable with a command'] } },
-
-    { id: 'spiderman',
-      it: { title: 'SpiderMan — swing a pendolo',
-            desc: 'Plugin con il lanciaragnatele: ti attacchi a un blocco e oscilli come un pendolo, con una fisica che regge anche col lag.',
-            intro: 'Volevo uno swing che sembrasse vero, non il solito lancio in avanti. Il problema è che il client applica comunque la sua gravità, e la corda deve restare tesa anche quando il server perde qualche tick.',
-            approach: 'La velocità dello swing la tiene il plugin, mentre il vincolo della corda viene ricalcolato dalla posizione reale del giocatore, così gli errori si correggono da soli. A ogni tick la posizione viene simulata più volte e al client arriva lo spostamento medio, con una compensazione per la gravità vanilla.',
-            h: ['Fisica a sottopassi per un movimento fluido', 'Deriva corretta dalla posizione reale a ogni tick', 'Compensazione della gravità applicata dal client', 'Poteri attivati solo dal "morso", salvato in un file'] },
-      en: { title: 'SpiderMan — pendulum swinging',
-            desc: 'A plugin with a web shooter: attach to a block and swing like a pendulum, with physics that holds up even under lag.',
-            intro: 'I wanted swinging that feels real, not the usual forward launch. The catch is that the client still applies its own gravity, and the rope has to stay taut even when the server drops ticks.',
-            approach: 'The plugin owns the swing velocity, while the rope constraint is recomputed from the player\'s real position, so errors correct themselves. Each tick the position is simulated several times and the client gets the average displacement, with compensation for vanilla gravity.',
-            h: ['Sub-step physics for smooth movement', 'Drift corrected from the real position every tick', 'Compensation for client-side gravity', 'Powers unlocked only by the "bite", saved to a file'] } },
-
-    { id: 'voltick',
-      it: { title: 'Voltick — profiler per server',
-            desc: 'Profiler per server Minecraft, alternativa a spark: campiona il server, trova chi causa il lag e genera un report web condivisibile.',
-            intro: 'Quando un server inizia a laggare devi capire in fretta se la colpa è di un plugin, di un tick pesante o del garbage collector. Ho scritto un profiler mio, utile quanto spark ma tutto sotto il mio controllo.',
-            approach: 'Il plugin cattura periodicamente gli stack dei thread e attribuisce il tempo CPU a plugin, classi e metodi, con un overhead minimo. Comprende anche monitor dei tick e del GC e un riepilogo dell\'heap. I report finiscono su un sito Express con SQLite, ognuno con un codice breve da condividere senza account.',
-            h: ['Profiler a campionamento scritto da zero', 'Tempo CPU diviso per plugin, classe e metodo', 'Monitor di tick, GC e heap in un solo comando', 'Sito dei report online, condivisione con un codice'] },
-      en: { title: 'Voltick — server profiler',
-            desc: 'A Minecraft server profiler, an alternative to spark: it samples the server, finds what causes lag and builds a shareable web report.',
-            intro: 'When a server starts lagging you need to know fast whether it is a plugin, a heavy tick or the garbage collector. I wrote my own profiler, as useful as spark but fully under my control.',
-            approach: 'The plugin periodically captures thread stacks and attributes CPU time to plugins, classes and methods with minimal overhead. It also includes tick and GC monitors and a heap summary. Reports go to an Express site with SQLite, each with a short code to share without an account.',
-            h: ['Sampling profiler written from scratch', 'CPU time split by plugin, class and method', 'Tick, GC and heap monitors in one command', 'Report site online, shared with a code'] } },
-
-    { id: 'launcher',
-      it: { title: 'Sniper Client — launcher',
-            desc: 'Launcher desktop per un server Forge: installa la versione giusta, scarica il modpack e le mod client, con preset di ottimizzazione.',
-            intro: 'Far entrare un giocatore nuovo in un server moddato voleva dire spiegargli Forge, il modpack e le mod da aggiungere. Il launcher fa tutto con un clic.',
-            approach: 'È un\'app Electron con React e TypeScript. Installa Forge, Fabric o NeoForge, scarica librerie e asset con un pool di download limitato (quello predefinito apriva tutto insieme e andava in timeout) e sincronizza il modpack del server. Ha preset di mod per gli FPS divisi per loader, Rich Presence su Discord e un installer per Windows.',
-            h: ['Profilo del server pronto con un clic', 'Download in parallelo limitato, niente timeout', 'Preset FPS diversi per ogni loader', 'Installer Windows e Rich Presence Discord'] },
-      en: { title: 'Sniper Client — launcher',
-            desc: 'A desktop launcher for a Forge server: installs the right version, downloads the modpack and client mods, with optimisation presets.',
-            intro: 'Getting a new player onto a modded server meant explaining Forge, the modpack and which mods to add. The launcher does it all in one click.',
-            approach: 'It is an Electron app with React and TypeScript. It installs Forge, Fabric or NeoForge, downloads libraries and assets through a bounded download pool (the default one opened everything at once and timed out) and syncs the server modpack. It has per-loader FPS mod presets, Discord Rich Presence and a Windows installer.',
-            h: ['Server profile ready in one click', 'Bounded parallel downloads, no timeouts', 'Different FPS presets for each loader', 'Windows installer and Discord Rich Presence'] } },
-
-    { id: 'shaders',
-      it: { title: 'ManuShaders — shaderpack',
-            desc: 'Shaderpack deferred per Iris e OptiFine su Minecraft 1.21: luce, ombre e acqua scritti a mano in GLSL.',
-            intro: 'Volevo capire come funziona davvero una pipeline di shader e avere un pack mio, leggero e con un look preciso.',
-            approach: 'Il pack usa la pipeline legacy GLSL 120, che Iris gestisce in modo più prevedibile. I file comuni vengono generati da script e l\'impacchettamento passa da uno script di build che scrive lo zip nel formato che Iris accetta: uno zip creato male viene scartato senza spiegazioni.',
-            h: ['Pipeline deferred scritta da zero', 'File comuni generati per non duplicare codice', 'Build che produce uno zip valido per Iris', 'Testato su Iris con Minecraft 1.21.x'] },
-      en: { title: 'ManuShaders — shaderpack',
-            desc: 'A deferred shaderpack for Iris and OptiFine on Minecraft 1.21: lighting, shadows and water handwritten in GLSL.',
-            intro: 'I wanted to understand how a shader pipeline really works and have my own pack, lightweight and with a specific look.',
-            approach: 'The pack uses the legacy GLSL 120 pipeline, which Iris handles more predictably. Shared files are generated by scripts and packaging goes through a build script that writes the zip in the format Iris accepts: a badly built zip gets rejected with no explanation.',
-            h: ['Deferred pipeline written from scratch', 'Generated shared files to avoid duplicated code', 'Build that outputs a zip Iris accepts', 'Tested on Iris with Minecraft 1.21.x'] } },
-
-    { id: 'bots',
-      it: { title: 'Bot Discord e Telegram',
-            desc: 'Bot per shop e community: ticket in thread privati, pannelli con Components V2, eventi, pagamenti crypto e pannelli admin.',
-            intro: 'Molte community vendono e organizzano tutto su Discord o Telegram, gestendo ordini e richieste a mano. Ho scritto bot che automatizzano il flusso dall\'apertura del ticket alla consegna.',
-            approach: 'I bot Discord sono in discord.js v14 o discord.py a seconda del cliente, con interfacce in Components V2 e emoji dell\'app. I ticket si aprono in thread privati per non riempire il server di canali. Per Telegram ho fatto bot di vendita e di amministrazione che girano come servizi systemd su VPS Linux.',
-            h: ['Thread privati per cliente invece di canali dedicati', 'Pannelli Components V2 con più stati', 'Pagamenti crypto con QR generato in locale', 'Deploy come servizi systemd su VPS'] },
-      en: { title: 'Discord and Telegram bots',
-            desc: 'Bots for shops and communities: tickets in private threads, Components V2 panels, events, crypto payments and admin panels.',
-            intro: 'Many communities sell and organise everything on Discord or Telegram, handling orders and requests by hand. I wrote bots that automate the flow from opening a ticket to delivery.',
-            approach: 'Discord bots use discord.js v14 or discord.py depending on the client, with Components V2 interfaces and app emojis. Tickets open in private threads so the server does not fill up with channels. For Telegram I built sales and admin bots running as systemd services on Linux VPSes.',
-            h: ['Private threads per customer instead of dedicated channels', 'Components V2 panels with multiple states', 'Crypto payments with locally generated QR codes', 'Deployed as systemd services on VPSes'] } }
+    { f: 'plugin', path: '~/core', wide: true, tags: ['Paper', 'Velocity', 'Gradle', 'MariaDB', 'Redis'],
+      it: { title: 'Core modulari', desc: 'Un core che offre database, cache, comandi e messaggi a tutto il server, e un modulo separato per ogni sistema: identità, economia, banca, chat. Ogni modulo ha la sua versione e la sua build, e si aggiorna senza toccare gli altri.' },
+      en: { title: 'Modular cores', desc: 'A core that gives the whole server its database, cache, commands and messages, plus a separate module for every system: identity, economy, bank, chat. Each module has its own version and build, and updates without touching the others.' } },
+    { f: 'plugin', path: '~/rp', tags: ['Paper', 'WorldGuard', 'SQLite'],
+      it: { title: 'Mestieri roleplay', desc: 'Plugin che rendono utili i mestieri: miniere con lo scavo deciso dal server, ferite che solo un medico chiude, stalle, bussole e anagrafe.' },
+      en: { title: 'Roleplay jobs', desc: 'Plugins that make jobs matter: mines where the server decides digging, wounds only a doctor can close, stables, compasses and a registry.' } },
+    { f: 'plugin', path: '~/staff', tags: ['Paper', 'GUI', 'SQLite'],
+      it: { title: 'Staff e moderazione', desc: 'Pannelli a GUI che si sbloccano col grado, sanzioni, registri delle azioni e modalità staff che non perde l\'inventario neanche dopo un crash.' },
+      en: { title: 'Staff and moderation', desc: 'GUI panels that unlock by rank, sanctions, action logs and a staff mode that keeps your inventory even after a crash.' } },
+    { f: 'mod', path: '~/fabric', wide: true, tags: ['Fabric', 'Mixin', 'Display entity', 'Networking'],
+      it: { title: 'Mod Fabric per roleplay', desc: 'Porte e ponti animati con le display entity, zaini che non si possono duplicare, HUD, bacheche missioni in 3D e GUI client con dati validati dal server. Tutto lato server dove serve, niente resource pack obbligatori.' },
+      en: { title: 'Fabric roleplay mods', desc: 'Doors and bridges animated with display entities, backpacks that cannot be duplicated, HUDs, 3D mission boards and client GUIs with server-validated data. Server-side where it matters, no mandatory resource packs.' } },
+    { f: 'mod', path: '~/forge', tags: ['Forge', 'Mixin', 'Netty'],
+      it: { title: 'Mod Forge', desc: 'Coda a server pieno tenuta nella fase di login, fuochi d\'artificio disegnati in gioco, log dei blocchi con rollback.' },
+      en: { title: 'Forge mods', desc: 'A full-server queue held in the login phase, fireworks drawn in game, block logging with rollback.' } },
+    { f: 'plugin app', path: '~/profiler', tags: ['Java', 'Express', 'SQLite'],
+      it: { title: 'Profiler per server', desc: 'Campiona i thread del server, divide il tempo CPU per plugin e metodo e genera un report web da condividere con un codice.' },
+      en: { title: 'Server profiler', desc: 'Samples server threads, splits CPU time by plugin and method and builds a web report you share with a code.' } },
+    { f: 'app', path: '~/desktop', tags: ['Electron', 'React', 'Python'],
+      it: { title: 'Launcher e app desktop', desc: 'Launcher che installa loader, modpack e mod per gli FPS con un clic, e app desktop in Python per uso quotidiano.' },
+      en: { title: 'Launchers and desktop apps', desc: 'A launcher that installs loaders, modpacks and FPS mods in one click, plus Python desktop apps for daily use.' } },
+    { f: 'app', path: '~/bots', wide: true, tags: ['discord.js v14', 'discord.py', 'Telegram', 'systemd'],
+      it: { title: 'Bot Discord e Telegram', desc: 'Ticket in thread privati, pannelli Components V2, eventi, shop con pagamenti e pannelli admin. Girano come servizi su VPS Linux e si riavviano da soli.' },
+      en: { title: 'Discord and Telegram bots', desc: 'Tickets in private threads, Components V2 panels, events, shops with payments and admin panels. They run as services on Linux VPSes and restart on their own.' } },
+    { f: 'mod', path: '~/shaders', tags: ['GLSL', 'Iris'],
+      it: { title: 'Shader', desc: 'Shaderpack deferred scritto a mano in GLSL: luce, ombre e acqua per Iris.' },
+      en: { title: 'Shaders', desc: 'A deferred shaderpack handwritten in GLSL: lighting, shadows and water for Iris.' } }
   ];
 
   const CODE = [
-    'package me.manudev.radice;',
+    'package me.manudev.core;',
     '',
     'import org.bukkit.plugin.java.JavaPlugin;',
     'import java.util.concurrent.CompletableFuture;',
     '',
-    'public final class Radice extends JavaPlugin {',
+    'public final class Core extends JavaPlugin {',
     '',
     '    private final ModuleRegistry modules = new ModuleRegistry(this);',
     '    private Database database;',
@@ -150,7 +45,7 @@
     '    @Override',
     '    public void onEnable() {',
     '        database = Database.connect(getConfig().getConfigurationSection("database"));',
-    '        modules.discover("me.manudev.radice.modules");',
+    '        modules.discover("me.manudev.core.modules");',
     '        modules.enableAll();',
     '        getLogger().info("pronto: " + modules.size() + " moduli attivi");',
     '    }',
@@ -205,7 +100,7 @@
     'st.java': 'plugins &amp; mods', 'st.paper': 'server &amp; proxy', 'st.mod': 'mixin, GeckoLib', 'st.db': 'data &amp; cache',
     'st.js': 'bots &amp; backend', 'st.py': 'tools &amp; automation', 'st.web': 'sites &amp; panels', 'st.ops': 'VPS &amp; deploy',
     'projects.title': 'projects',
-    'projects.sub': 'Almost everything was written for private servers and clients, so the code isn\'t public. Click a card for the technical details.',
+    'projects.sub': 'Everything here was built for private servers and clients, so you get the kind of work, not the names.',
     'f.all': 'all',
     'path.title': 'journey',
     'tl.1w': 'today', 'tl.1t': 'Freelance developer', 'tl.1d': 'Plugins, mods and bots for Italian roleplay servers and communities. Modular suites, VPS deploys, ongoing maintenance.',
@@ -241,40 +136,21 @@
   if (lang !== 'en') lang = 'it';
 
   const grid = $('#grid');
-  const modal = $('#modal');
-  const modalBody = $('#modal-body');
 
   function renderCards() {
-    const u = UI[lang];
-    grid.innerHTML = PROJECTS.map(p => {
-      const m = META[p.id], t = p[lang];
-      return `<button class="card${m.wide ? ' wide' : ''}" data-id="${p.id}" data-f="${m.f}">
-        <div class="card-top"><span class="kind">${m.kind}</span><span class="badge${m.live ? ' live' : ''}">${m.live ? '● ' + u.live : u.priv}</span></div>
+    grid.innerHTML = PROJECTS.map((p, i) => {
+      const t = p[lang];
+      return `<article class="card${p.wide ? ' wide' : ''}" data-f="${p.f}">
+        <div class="card-top"><span class="kind">${p.path}</span><span class="idx">${String(i + 1).padStart(2, '0')}</span></div>
         <h3>${t.title}</h3><p>${t.desc}</p>
-        <div class="tags">${m.tags.map(x => `<span>${x}</span>`).join('')}</div>
-        <span class="more">${u.more}</span>
-      </button>`;
+        <div class="tags">${p.tags.map(x => `<span>${x}</span>`).join('')}</div>
+      </article>`;
     }).join('');
     applyFilter($('.filters .on').dataset.f);
   }
 
   function applyFilter(f) {
     $$('.card', grid).forEach(c => c.classList.toggle('hide', f !== 'all' && !c.dataset.f.split(' ').includes(f)));
-  }
-
-  function openProject(id) {
-    const p = PROJECTS.find(x => x.id === id);
-    if (!p) return;
-    const m = META[id], t = p[lang], u = UI[lang];
-    modalBody.innerHTML = `
-      <div class="card-top" style="justify-content:flex-start;gap:12px"><span class="kind">${m.kind}</span><span class="badge${m.live ? ' live' : ''}">${m.live ? '● ' + u.live : u.priv}</span></div>
-      <h3>${t.title}</h3>
-      <h4>${u.intro}</h4><p>${t.intro}</p>
-      <h4>${u.approach}</h4><p>${t.approach}</p>
-      <h4>${u.hl}</h4><ul>${t.h.map(h => `<li><span>${h}</span></li>`).join('')}</ul>
-      <div class="tags">${m.tags.map(x => `<span>${x}</span>`).join('')}</div>`;
-    if (typeof modal.showModal === 'function') modal.showModal(); else modal.setAttribute('open', '');
-    modal.scrollTop = 0;
   }
 
   function setLang(l) {
@@ -311,17 +187,17 @@
         { o: '<span class="c-dim">&gt; Task :compileJava</span>', d: 520 },
         { o: '<span class="c-dim">&gt; Task :shadowJar</span>', d: 680 },
         { o: '<span class="c-ok">BUILD SUCCESSFUL</span> <span class="c-dim">in 4s</span>', d: 420 },
-        { c: 'scp build/libs/Radice.jar vps:plugins/' },
-        { o: '<span class="c-dim">Radice.jar</span>  <span class="bar" style="--w:100%"></span> 100%', d: 300, bar: true },
+        { c: 'scp build/libs/core.jar vps:plugins/' },
+        { o: '<span class="c-dim">core.jar</span>  <span class="bar" style="--w:100%"></span> 100%', d: 300, bar: true },
         { o: `<span class="c-ok">✓</span> ${it ? 'deploy fatto, riavvio non necessario' : 'deployed, no restart needed'}`, d: 450 }
       ],
       [
-        { c: '/vk tps' },
+        { c: '/perf tps' },
         { o: kv('tps', '20.0 · 20.0 · 20.0') },
         { o: kv('mspt', '11.8 ms') },
-        { c: '/vk profiler start --timeout 60' },
+        { c: '/perf profiler start --timeout 60' },
         { o: `<span class="c-dim">› ${it ? 'profiler avviato, report tra 60s' : 'profiler started, report in 60s'}</span>`, d: 300 },
-        { o: `<span class="c-ok">✓</span> ${it ? 'report pronto' : 'report ready'}: <span class="c-key">VK-7f3a91c2</span>`, d: 1600 }
+        { o: `<span class="c-ok">✓</span> ${it ? 'report pronto' : 'report ready'}: <span class="c-key">r-7f3a91c2</span>`, d: 1600 }
       ]
     ];
   };
@@ -419,10 +295,6 @@
     applyFilter(b.dataset.f);
   });
 
-  grid.addEventListener('click', e => {
-    const c = e.target.closest('.card');
-    if (c) openProject(c.dataset.id);
-  });
   grid.addEventListener('pointermove', e => {
     const c = e.target.closest('.card');
     if (!c) return;
@@ -431,8 +303,6 @@
     c.style.setProperty('--my', `${e.clientY - r.top}px`);
   });
 
-  $('.modal-x').addEventListener('click', () => modal.close());
-  modal.addEventListener('click', e => { if (e.target === modal) modal.close(); });
 
   $('.lang').addEventListener('click', () => setLang(lang === 'it' ? 'en' : 'it'));
 
@@ -448,7 +318,52 @@
     burger.setAttribute('aria-expanded', 'false');
   }));
 
-  addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 12), { passive: true });
+  const bar = $('.progress');
+  const onScroll = () => {
+    nav.classList.toggle('scrolled', scrollY > 12);
+    const max = document.documentElement.scrollHeight - innerHeight;
+    bar.style.setProperty('--p', max > 0 ? (scrollY / max).toFixed(4) : 0);
+  };
+  addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  const GLYPHS = 'abcdefghijklmnopqrstuvwxyz/{}[]=+*#$_';
+  function scramble(el) {
+    if (reduce || el.dataset.busy) return;
+    const final = el.textContent;
+    el.dataset.busy = '1';
+    const t0 = performance.now(), dur = 650;
+    const f = now => {
+      const k = Math.min(1, (now - t0) / dur);
+      const shown = Math.floor(final.length * k);
+      if (k < 1) {
+        const rest = [...final.slice(shown)].map(c => c === ' ' ? ' ' : GLYPHS[Math.random() * GLYPHS.length | 0]).join('');
+        el.innerHTML = final.slice(0, shown) + `<span class="scramble">${rest}</span>`;
+        requestAnimationFrame(f);
+      } else {
+        el.textContent = final;
+        delete el.dataset.busy;
+      }
+    };
+    requestAnimationFrame(f);
+  }
+  if ('IntersectionObserver' in window) {
+    const so = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { scramble(e.target); so.unobserve(e.target); }
+    }), { threshold: 1 });
+    $$('.sec-head h2').forEach(h => so.observe(h));
+  }
+
+  const side = $('.hero-side'), term = $('.term');
+  if (side && term && !reduce && matchMedia('(hover: hover)').matches) {
+    side.addEventListener('pointermove', e => {
+      const r = side.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+      term.classList.add('tilt');
+      term.style.transform = `perspective(1000px) rotateX(${(-y * 9).toFixed(2)}deg) rotateY(${(x * 12).toFixed(2)}deg)`;
+    });
+    side.addEventListener('pointerleave', () => { term.classList.remove('tilt'); term.style.transform = ''; });
+  }
 
   const sections = $$('main section[id]');
   if ('IntersectionObserver' in window) {
@@ -476,15 +391,23 @@
       (m, str) => `<span class="${str ? 's' : 'k'}">${m}</span>`) + tail;
   };
   const bg = $('#bg-code');
-  bg.innerHTML = CODE.map((l, i) => `<span class="ln">${i + 1}</span>${i === TYPE_LINE ? `<span class="typing" id="typing">${paint(l)}</span>` : paint(l)}`).join('\n');
+  const hot = $('#bg-hot');
+  bg.innerHTML = CODE.map((l, i) => `<span class="ln">${i + 1}</span>${i === TYPE_LINE ? `<span class="typing">${paint(l)}</span>` : paint(l)}`).join('\n');
+  hot.innerHTML = bg.innerHTML;
+  addEventListener('pointermove', e => {
+    const r = hot.getBoundingClientRect();
+    hot.style.setProperty('--hx', `${e.clientX - r.left}px`);
+    hot.style.setProperty('--hy', `${e.clientY - r.top}px`);
+  }, { passive: true });
   if (!reduce) {
-    const target = $('#typing');
+    const targets = $$('.bg .typing');
     const full = CODE[TYPE_LINE];
     const lead = full.match(/^\s*/)[0].length;
     let n = full.length, dir = -1;
     const step = () => {
       n += dir;
-      target.innerHTML = paint(full.slice(0, n));
+      const h = paint(full.slice(0, n));
+      targets.forEach(t => { t.innerHTML = h; });
       let d = dir < 0 ? 22 : 55;
       if (n <= lead) { dir = 1; d = 700; }
       else if (n >= full.length) { dir = -1; d = 4200; }
